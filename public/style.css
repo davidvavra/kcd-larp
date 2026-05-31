@@ -496,6 +496,7 @@ body {
 .character-tag {
     display: flex;
     align-items: center;
+    color: var(--text-light);
     gap: 8px;
 }
 
