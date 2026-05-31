@@ -29,7 +29,7 @@ html {
 }
 
 body {
-    background-image: url('pozadi.png');
+    background-image: url('images/pozadi.png');
     background-repeat: repeat;
     background-size: 400px;
     background-color: var(--bg-deep-black);
@@ -54,7 +54,7 @@ body {
             rgba(10, 10, 11, 0.4) 50%, 
             rgba(10, 10, 11, 0.9) 100%
         ), 
-        url('svatba.png');
+        url('images/svatba.png');
     background-size: cover;
     background-position: center 30%;
     background-repeat: no-repeat;
@@ -284,7 +284,7 @@ body {
     transform: translateX(-50%);
     width: 500px;
     height: 80px;
-    background: url("rozdelovac2.png") center center / contain no-repeat;
+    background: url("images/rozdelovac2.png") center center / contain no-repeat;
     z-index: 30;
 }
 
@@ -364,7 +364,7 @@ body {
     transform: translateX(-50%);
     width: 900px;
     height: 150px;
-    background: url("rozdelovac3.png") center center / contain no-repeat;
+    background: url("images/rozdelovac3.png") center center / contain no-repeat;
     z-index: 30;
 }
 
@@ -569,7 +569,7 @@ body {
     width: 50%;
     height: 100%;
     z-index: 0;
-    background-image: url('henry.png');
+    background-image: url('images/henry.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top right;
@@ -674,11 +674,19 @@ body {
     text-decoration: none;
     font-size: 2rem;
     color: var(--gold-dark);
-    transition: all 0.3s ease;
-    opacity: 0.7;
+    transition: all 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
-.back-to-top:hover {
+.back-to-top.visible {
+    opacity: 0.7;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.back-to-top.visible:hover {
     opacity: 1;
     color: var(--gold-bright);
 }
