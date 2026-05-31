@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Osgard';
+    src: url('fonts/osgard.otf') format('opentype');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
 /* --- KCD & NOSEDIVE DESIGN SYSTÉM --- */
 :root {
     --gold-bright: #f1cc63;
@@ -55,7 +63,7 @@ body {
             rgba(10, 10, 11, 0.85) 0%,
             rgba(10, 10, 11, 0.4) 50%,
             rgba(10, 10, 11, 0.9) 100%),
-        url('images/svatba.png');
+        url('images/svatba.jpg');
     background-size: cover;
     background-position: center 30%;
     background-repeat: no-repeat;
@@ -106,23 +114,13 @@ body {
 }
 
 .main-wedding-title {
-    font-family: 'UnifrakturMaguntia', serif;
-    font-size: 4.5rem;
+    font-family: 'Osgard', serif;
+    font-size: 4rem;
     color: #ffffff;
     font-weight: 400;
     line-height: 1.1;
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 0, 0, 0.7);
     text-align: center;
-}
-
-.main-wedding-title small {
-    font-family: 'Fondamento', serif;
-    font-size: 2.4rem;
-    color: var(--gold-bright);
-    display: block;
-    margin-top: 20px;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
 .hero-text-bottom {
