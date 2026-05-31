@@ -123,6 +123,20 @@ body {
     align-items: center;
 }
 
+/* Styl pro textové odkazy (sjednocení s designem webu) */
+.ui-content-panel p a {
+    color: var(--gold-bright);
+    text-decoration: underline;
+    text-decoration-color: var(--gold-dark);
+    text-underline-offset: 4px;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.ui-content-panel p a:hover {
+    color: #ffffff;
+    text-decoration-color: var(--gold-bright);
+}
+
 /* ========================================== */
 /* ÚVODNÍ OBRAZOVKA PŘES CELÝ MONITOR (HERO)  */
 /* ========================================== */
@@ -454,8 +468,13 @@ body {
 
 .practical-icon-wrapper {
     font-size: 1.8rem;
-    min-width: 40px;
+    width: 70px;
+    flex-shrink: 0;
     text-align: center;
+}
+
+.practical-icon {
+    width: 70px;
 }
 
 .practical-item-title {
@@ -626,29 +645,11 @@ body {
     text-align: justify;
 }
 
-/* Section: prakticke (Henry BG section) */
+/* Section: prakticke */
 #prakticke {
     background-image: linear-gradient(to bottom, #060607, #0d0d0f);
     position: relative;
     padding: 60px 50px;
-    min-height: 600px;
-}
-
-.prakticke-bg-image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    z-index: 0;
-    background-image: url('images/henry.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: top right;
-    mask-image: linear-gradient(to left, black 40%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to left, black 40%, transparent 100%);
-    opacity: 0.7;
-    pointer-events: none;
 }
 
 .prakticke-content-wrapper {
@@ -667,7 +668,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    max-width: 600px;
 }
 
 /* Section: postavy */
