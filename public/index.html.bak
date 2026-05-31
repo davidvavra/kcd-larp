@@ -526,7 +526,32 @@
 		
         @media (max-width: 950px) {
 
-		
+		/* 1. Odstranění odskoku nahoře (když má body padding, který tam nechceme) */
+    body {
+        padding-top: 0 !important;
+    }
+
+    /* 2. Zafixování navigace, aby se "neposouvala" */
+    .game-navigation {
+        position: fixed !important;
+        top: 0 !important;
+        min-height: 60px !important; /* Pevná výška pro mobil */
+    }
+
+    /* 3. Aplikace "display: block" a úprava ornamentů pouze pro mobily */
+    .nav-ornament-left img, 
+    .nav-ornament-right img {
+        display: block !important;    /* Tímto se zbavíte té neviditelné mezery */
+        height: 40px !important;      /* Zmenšení, aby ornamenty nepřetékaly */
+        margin: 0 !important;         /* Resetujeme negativní marginy */
+        padding: 0 !important;
+    }
+
+    /* 4. Odsazení hlavní sekce, aby nebyla pod navigací schovaná */
+    .hero-wedding-header {
+        padding-top: 60px !important; 
+    }
+}
 		
     .mobile-menu-toggle {
         display: block;

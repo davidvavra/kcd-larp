@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Svatba Jana Ptáčka z Pirkštejna | KCD Fan LARP</title>
+    
+    <link rel="icon" type="image/x-icon" href="https://kingdom-come.cz/favicon.ico">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400&family=Fondamento:ital@0;1&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- DESIGN SYSTÉM (KCD INSPIROVÁNO) --- */
+        :root {
+            --gold-bright: #f1cc63;
+            --gold-dark: #a68642;
+            --gold-dim: #8a713e;
+            --bg-dark: #0a0a0b;
+            --bg-deep-black: #050506;
+            --pergamen-bg: #e6d7b8;
+            --pergamen-shadow: #c2b08c;
+            --text-dark: #1c160e;
+            --text-light: #e6e6e6;
+        }
+
+        /* --- ZÁKLADNÍ RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-image: url('pozadi.png');
+            background-repeat: repeat;
+            background-size: 500px;
+            background-attachment: scroll; /* Textura se posouvá společně s webem */
+            background-color: #110d0a; /* Sjednocená záložní tmavá barva */
+            color: var(--text-light);
+            font-family: 'Almendra', serif;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* HLAVNÍ OBAL WEBU */
+        .web-container {
+            width: 100%;
+            max-width: 1140px;
+            background-color: var(--bg-dark);
+            border: 4px double var(--gold-dark);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.95);
+            position: relative;
+        }
+
+        /* DEKORAČNÍ KŘÍŽKY V ROZÍCH WEBU */
+        .web-container::before, 
+        .web-container::after {
+            content: "✦";
+            position: absolute;
+            color: var(--gold-dark);
+            font-size: 1.1rem;
+            z-index: 10;
+        }
+        .web-container::before { top: 5px; left: 8px; }
+        .web-container::after { top: 5px; right: 8px; }
+
+        /* --- ZÁHLAVÍ --- */
+        .main-header {
+            padding: 35px 40px 20px 40px;
+            text-align: center;
+            background: linear-gradient(to bottom, #141417, var(--bg-dark));
+            border-bottom: 1px solid rgba(166, 134, 66, 0.3);
+        }
+
+        .header-title-zone {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+
+        .header-title-zone h1 {
+            font-family: 'Fondamento', serif;
+            font-size: 2.8rem;
+            color: var(--gold-bright);
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.9), 0 0 15px rgba(241, 204, 99, 0.2);
+            font-weight: 400;
+        }
+
+        .medieval-rabbit {
+            width: 50px;
+            height: auto;
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.6));
+        }
+        .medieval-rabbit.left { transform: scaleX(-1); }
+
+        .navigation-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(166, 134, 66, 0.25);
+            padding-top: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Almendra', serif;
+            color: var(--gold-dark);
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 5px 20px;
+            transition: all 0.2s;
+            letter-spacing: 2px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-bright);
+            text-shadow: 0 0 10px rgba(241, 204, 99, 0.6);
+        }
+
+        /* STYLOVÉ HERNÍ UI TLAČÍTKO */
+        .cta-button {
+            font-family: 'Almendra', serif;
+            color: var(--gold-bright);
+            border: 2px solid var(--gold-dark);
+            background: linear-gradient(to bottom, rgba(40, 33, 23, 0.6), rgba(20, 16, 11, 0.8));
+            padding: 8px 25px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            transition: all 0.2s ease;
+        }
+
+        .cta-button:hover {
+            border-color: var(--gold-bright);
+            color: var(--bg-deep-black);
+            background: var(--gold-bright);
+            box-shadow: 0 0 15px rgba(241, 204, 99, 0.6);
+        }
+
+        /* --- HERO SEKCE (PERGAMEN) --- */
+        .hero-section {
+            padding: 30px;
+            background-color: var(--bg-dark);
+        }
+
+        .pergamen-card {
+            background-color: var(--pergamen-bg);
+            border: 1px solid var(--gold-dark);
+            border-radius: 6px 14px 5px 12px / 14px 5px 12px 6px;
+            padding: 45px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            position: relative;
+            box-shadow: inset 0 0 40px var(--pergamen-shadow), 0 10px 25px rgba(0,0,0,0.6);
+        }
+
+        .seal-area {
+            flex: 0.5;
+            display: flex;
+            justify-content: center;
+            min-width: 60px;
+        }
+
+        .medieval-seal {
+            font-size: 5.5rem;
+            color: #8c251e;
+            opacity: 0.15;
+            transform: rotate(-15deg);
+            user-select: none;
+        }
+
+        .text-area {
+            flex: 2.5;
+            text-align: center;
+            color: var(--text-dark);
+        }
+
+        .hero-tag {
+            font-family: 'Fondamento', serif;
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            color: #614e35;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .main-invitation {
+            font-family: 'UnifrakturMaguntia', serif;
+            font-size: 2.2rem;
+            line-height: 1.3;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .meta-info {
+            font-family: 'Fondamento', serif;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            font-weight: bold;
+            color: #4a3a24;
+            border-top: 1px solid rgba(0,0,0,0.15);
+            display: inline-block;
+            padding-top: 10px;
+        }
+
+        .image-area {
+            flex: 3;
+            display: flex;
+            justify-content: center;
+            min-width: 320px;
+        }
+
+        /* RÁM PRO VYGENEROVANÝ OBRÁZEK Z KCD */
+        .castle-frame {
+            width: 100%;
+            background-color: #241d17; 
+            border: 4px solid #1c1712;
+            padding: 4px;
+            box-shadow: 8px 8px 25px rgba(0,0,0,0.6);
+            border-radius: 2px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .castle-frame img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            filter: contrast(1.1) brightness(0.95) saturate(0.9) sepia(0.12);
+            transition: filter 0.5s ease;
+        }
+
+        .castle-frame:hover img {
+            filter: contrast(1.15) brightness(1) saturate(1) sepia(0);
+        }
+
+        /* --- PŘEDĚLY SEKCÍ --- */
+        .section-separator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 30px;
+            background-color: var(--bg-dark);
+        }
+
+        .sep-line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--gold-dark), transparent);
+        }
+
+        .sep-badge {
+            font-family: 'Fondamento', serif;
+            color: var(--gold-bright);
+            border: 1px solid var(--gold-dark);
+            padding: 6px 35px;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            background-color: #0b0b0d;
+        }
+
+        /* --- SEKCE: O HŘE --- */
+        .about-section {
+            padding: 30px;
+            background-color: var(--bg-deep-black);
+        }
+
+        .about-intro {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 40px auto;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #b0a99f;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-box {
+            background-color: #ffffff;
+            border: 1px solid var(--gold-dark);
+            border-radius: 4px;
+            padding: 30px 20px;
+            text-align: center;
+            color: var(--text-dark);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-box:hover { transform: translateY(-5px); }
+
+        .kcd-rabbit-icon {
+            font-size: 3.5rem;
+            line-height: 1;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .feature-box h3 {
+            font-family: 'Fondamento', serif;
+            font-size: 1.25rem;
+            color: #000;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+        }
+
+        .feature-box p { font-size: 0.95rem; line-height: 1.4; color: #443c33; }
+
+        /* --- SEKCE: PRAKTICKÉ --- */
+        .practical-section {
+            padding: 30px;
+            background-color: var(--bg-dark);
+        }
+
+        .scrolls-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .scroll-item {
+            background-color: rgba(230, 215, 184, 0.05);
+            border-left: 4px solid var(--gold-dark);
+            padding: 25px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .scroll-item h3 {
+            font-family: 'Fondamento', serif;
+            font-size: 1.4rem;
+            color: var(--gold-bright);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .scroll-item p, .scroll-item li { font-size: 1.05rem; line-height: 1.5; color: #ccc; margin-bottom: 10px; }
+        .scroll-item ul { list-style-type: "✦ "; margin-left: 20px; }
+
+        /* --- SEKCE: POSTAVY A REGISTRACE --- */
+        .characters-section {
+            padding: 40px 30px;
+            background-color: var(--bg-deep-black);
+            text-align: center;
+        }
+
+        .char-info-box {
+            background: rgba(166, 134, 66, 0.05);
+            border: 1px dashed var(--gold-dark);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        .registration-notice {
+            background: #1c1710;
+            border: 1px solid var(--gold-dark);
+            padding: 30px 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            border-radius: 4px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        .registration-notice h4 {
+            color: var(--gold-bright);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            font-family: 'Fondamento', serif;
+            letter-spacing: 1px;
+        }
+
+        .registration-notice p {
+            color: #ccc;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        /* --- PATIČKA --- */
+        .main-footer {
+            padding: 30px;
+            text-align: center;
+            background-color: #050506;
+            border-top: 1px solid rgba(166, 134, 66, 0.2);
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .disclaimer { font-style: italic; max-width: 800px; margin: 10px auto 0 auto; color: #555; font-size: 0.8rem; line-height: 1.4; }
+
+        /* --- RESPONSIVITA PRO MOBILY --- */
+        @media (max-width: 960px) {
+            .pergamen-card { flex-direction: column; padding: 40px 20px; gap: 30px; }
+            .seal-area { order: 1; margin-bottom: -15px; }
+            .text-area { order: 2; }
+            .image-area { order: 3; width: 100%; min-width: 100%; }
+        }
+
+        @media (max-width: 680px) {
+            body { padding: 5px; }
+            .web-container { border-width: 2px; }
+            .header-title-zone h1 { font-size: 1.6rem; }
+            .medieval-rabbit { width: 35px; }
+            .navigation-bar { flex-direction: column; gap: 15px; padding: 15px 5px; }
+            .nav-links { flex-direction: column; align-items: center; gap: 8px; }
+            .cta-button { width: 100%; text-align: center; }
+            .main-invitation { font-size: 1.5rem; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+		
+        /* EXTRA ELEMENTY Z INLINE ÚPRAV */
+        .header-heraldry {
+            font-size: 2.2rem;
+            color: var(--gold-bright);
+            text-shadow: 0 0 10px rgba(241, 204, 99, 0.4), 2px 2px 4px rgba(0,0,0,0.8);
+            animation: pulseGlow 4s ease-in-out infinite alternate;
+        }
+
+        .menu-separator {
+            color: var(--gold-dim);
+            font-size: 0.7rem;
+            opacity: 0.5;
+            user-select: none;
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.75; text-shadow: 0 0 8px rgba(241, 204, 99, 0.3); }
+            100% { opacity: 1; text-shadow: 0 0 15px rgba(241, 204, 99, 0.6); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="web-container">
+        
+        <!-- ========================================== -->
+        <!-- ZÁHLAVÍ (HEADER)                           -->
+        <!-- ========================================== -->
+        <header class="main-header" style="background: radial-gradient(circle at center, #1a1510 0%, #0a0a0b 100%);">
+            <div class="header-title-zone">
+                <span class="header-heraldry">⚜</span>
+                <h1 class="game-title">Svatba Jana Ptáčka z Pirkštejna</h1>
+                <span class="header-heraldry">⚜</span>
+            </div>
+            
+            <nav class="navigation-bar" style="background: rgba(166, 134, 66, 0.03); padding: 12px 30px; border-radius: 4px; border: 1px solid rgba(166, 134, 66, 0.15);">
+                <ul class="nav-links" style="display: flex; align-items: center;">
+                    <li><a href="#o-hre">O HŘE</a></li>
+                    <li class="menu-separator">✦</li>
+                    <li><a href="#prakticke">PRAKTICKÉ</a></li>
+                    <li class="menu-separator">✦</li>
+                    <li><a href="#postavy">POSTAVY</a></li>
+                    <li class="menu-separator">✦</li>
+                    <li><a href="#prihlasovani">PŘIHLAŠOVÁNÍ</a></li>
+                    <li class="menu-separator">✦</li>
+                    <li><a href="#autori">AUTOŘI</a></li>
+                </ul>
+                <a href="#prihlasovani" class="cta-button">CHCI JET</a>
+            </nav>
+        </header>
+
+        <!-- ========================================== -->
+        <!-- HERO SEKCE (PERGAMEN + OBRAZ TVRZE)        -->
+        <!-- ========================================== -->
+        <section class="hero-section">
+            <div class="pergamen-card">
+                <div class="seal-area">
+                    <div class="medieval-seal">⚜</div>
+                </div>
+                <div class="text-area">
+                    <div class="hero-tag">Pozvánka</div>
+                    <h2 class="main-invitation">
+                        Urozený pán Jan Ptácek z Pirkstejna si Vás dovoluje co nejsrdečněji pozvati ke stolu i k zábave u príležitosti svého vstupu do stavu manzelského...
+                    </h2>
+                    <p class="meta-info">FANOUŠKOVSKÝ OBSAHOVÝ LARP | TVRZ MALEŠOV | 2026</p>
+                </div>
+                <div class="image-area">
+                    <div class="castle-frame">
+                        <img src="tvrz.png" alt="Tvrz Malešov and podhradí ve stylu KCD">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PŘEDĚL: O HŘE -->
+        <div id="o-hre" class="section-separator">
+            <div class="sep-line"></div>
+            <div class="sep-badge">O HŘE</div>
+            <div class="sep-line"></div>
+        </div>
+		
+        <!-- ========================================== -->
+        <!-- SEKCE: O HŘE                               -->
+        <!-- ========================================== -->
+        <section class="about-section" style="padding: 50px 30px; background-color: #050506;">
+            <p class="about-intro" style="text-align: center; max-width: 800px; margin: 0 auto 50px auto; font-size: 1.25rem; line-height: 1.6; color: #b0a99f; font-family: 'Almendra', serif;">
+                Děj hry přímo navazuje na události konce <em>Kingdom Come: Deliverance 2</em>. Zikmund byl vyhnán z Čech, rod Ruthardů se vrátil na Malešov a opravuje pobořenou tvrz. Na oslavu míru pořádá Hanuš z Lipé honosnou svatbu pro svého chráněnce Jana Ptáčka, který si bere Jitku z Kunštátu.
+            </p>
+            
+            <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto;">
+                
+                <!-- Box 1 -->
+                <div class="feature-box-new" style="background: #110f0c; border: 1px solid #a68642; border-radius: 3px; padding: 35px 25px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5); transition: all 0.3s ease;">
+                    <div style="margin-bottom: 20px; color: #f1cc63;"><span style="font-size: 3rem;">𓃹</span></div>
+                    <h3 style="font-family: 'Fondamento', serif; font-size: 1.3rem; color: #f1cc63; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase;">Zažijte KCD IRL</h3>
+                    <p style="font-family: 'Almendra', serif; font-size: 1rem; line-height: 1.5; color: #ccc;">Kingdom Come vyniká imerzí. Náš larp přenáší tento jedinečný pocit, atmosphere a historický lore přímo do reality.</p>
+                </div>
+
+                <!-- Box 2 -->
+                <div class="feature-box-new" style="background: #110f0c; border: 1px solid #a68642; border-radius: 3px; padding: 35px 25px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5); transition: all 0.3s ease;">
+                    <div style="margin-bottom: 20px; color: #f1cc63;"><span style="font-size: 3rem;">𓃹</span></div>
+                    <h3 style="font-family: 'Fondamento', serif; font-size: 1.3rem; color: #f1cc63; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase;">Příběh po KCD2</h3>
+                    <p style="font-family: 'Almendra', serif; font-size: 1rem; line-height: 1.5; color: #ccc;">Pokračujte v osudech známých postav. Politické intriky českého království, staré křivdy a příběh, který píšete vy.</p>
+                </div>
+
+                <!-- Box 3 -->
+                <div class="feature-box-new" style="background: #110f0c; border: 1px solid #a68642; border-radius: 3px; padding: 35px 25px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5); transition: all 0.3s ease;">
+                    <div style="margin-bottom: 20px; color: #f1cc63;"><span style="font-size: 3rem;">𓃻</span></div>
+                    <h3 style="font-family: 'Fondamento', serif; font-size: 1.3rem; color: #f1cc63; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase;">Šlechtická svatba</h3>
+                    <p style="font-family: 'Almendra', serif; font-size: 1rem; line-height: 1.5; color: #ccc;">Zažijte autentickou dobovou veselici se vším všudy – bohatá hostina, turnaj v kostkách, lukostřelba a rytířské souboje.</p>
+                </div>
+
+                <!-- Box 4 -->
+                <div class="feature-box-new" style="background: #110f0c; border: 1px solid #a68642; border-radius: 3px; padding: 35px 25px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5); transition: all 0.3s ease;">
+                    <div style="margin-bottom: 20px; color: #f1cc63;"><span style="font-size: 3rem;">𓃼</span></div>
+                    <h3 style="font-family: 'Fondamento', serif; font-size: 1.3rem; color: #f1cc63; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase;">Tvrz Malešov</h3>
+                    <p style="font-family: 'Almendra', serif; font-size: 1rem; line-height: 1.5; color: #ccc;">Hrajeme přímo na reálné lokaci známé ze hry. Celá tvrz bude uzavřena pouze pro potřeby našeho příběhu.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PŘEDĚL: PRAKTICKÉ INFO -->
+        <div id="prakticke" class="section-separator">
+            <div class="sep-line"></div>
+            <div class="sep-badge">PRAKTICKÉ INFO</div>
+            <div class="sep-line"></div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SEKCE: PRAKTICKÉ INFO                      -->
+        <!-- ========================================== -->
+        <section class="practical-section" style="padding: 50px 30px; background-color: #050506;">
+            
+            <!-- KARTA 1: HARMONOGRAM -->
+            <div class="info-box" style="background: #110f0c; border-left: 3px solid #a68642; border-top: 1px solid rgba(166,134,66,0.2); border-right: 1px solid rgba(166,134,66,0.2); border-bottom: 1px solid rgba(166,134,66,0.2); border-radius: 3px; padding: 30px; margin-bottom: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+                <h3 style="font-family: 'Fondamento', serif; font-size: 1.4rem; color: #f1cc63; margin-top: 0; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <span style="color: #a68642;">🜩</span> Harmonogram a formát
+                </h3>
+                <p style="font-family: 'Almendra', serif; font-size: 1.1rem; line-height: 1.6; color: #b0a99f; margin-bottom: 20px; font-style: italic;">
+                    Hra je obsahová a plně konverzační. Děj je rozdělen do 3 jasných dějství oddělených orchestrálním soundtrackem z KCD.
+                </p>
+                
+                <div style="font-family: 'Almendra', serif; color: #ccc; line-height: 1.8;">
+                    <div style="margin-bottom: 10px; display: flex; gap: 15px;">
+                        <strong style="color: #f1cc63; min-width: 140px; display: inline-block;">✦ Pátek večer:</strong>
+                        <span>Příjezd, ubytování na tvrzi a interaktivní seznamovací workshopy.</span>
+                    </div>
+                    <div style="margin-bottom: 10px; display: flex; gap: 15px;">
+                        <strong style="color: #f1cc63; min-width: 140px; display: inline-block;">✦ Sobota (12:00):</strong>
+                        <span>Samotná hra (Hostina → Svatební obřad a turnaje → První tanec a gradace děje).</span>
+                    </div>
+                    <div style="display: flex; gap: 15px;">
+                        <strong style="color: #f1cc63; min-width: 140px; display: inline-block;">✦ Sobota noc:</strong>
+                        <span>Afterparty a neformální reflexe. Neděle odjezd.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KARTA 2: KOSTÝMY -->
+            <div class="info-box" style="background: #110f0c; border-left: 3px solid #a68642; border-top: 1px solid rgba(166,134,66,0.2); border-right: 1px solid rgba(166,134,66,0.2); border-bottom: 1px solid rgba(166,134,66,0.2); border-radius: 3px; padding: 30px; margin-bottom: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+                <h3 style="font-family: 'Fondamento', serif; font-size: 1.4rem; color: #f1cc63; margin-top: 0; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <span style="color: #a68642;">🜲</span> Kostýmy a ubytování
+                </h3>
+                <p style="font-family: 'Almendra', serif; font-size: 1.1rem; line-height: 1.6; color: #ccc;">
+                    <strong style="color: #f1cc63;">Kostýmy kompletně zajišťujeme my</strong> ve spolupráci s reenactorskou skupinou. Spí se společně v patře tvrze.
+                </p>
+            </div>
+
+            <!-- KARTA 3: BEZPEČNOST -->
+            <div class="info-box" style="background: #110f0c; border-left: 3px solid #a68642; border-top: 1px solid rgba(166,134,66,0.2); border-right: 1px solid rgba(166,134,66,0.2); border-bottom: 1px solid rgba(166,134,66,0.2); border-radius: 3px; padding: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+                <h3 style="font-family: 'Fondamento', serif; font-size: 1.4rem; color: #f1cc63; margin-top: 0; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <span style="color: #a68642;">🜡</span> Bezpečnost a mechanika intimity
+                </h3>
+                <p style="font-family: 'Almendra', serif; font-size: 1.1rem; line-height: 1.6; color: #ccc;">
+                    Pro romantické linky využíváme bezpečnou mechaniku "pásků" z <em>Cest Časem</em> doplněnou o stop-slovo <span style="color: #f1cc63; font-style: italic;">"Uber"</span> pro plnou kontrolu.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- PŘEDĚL: POSTAVY -->
+        <div id="postavy" class="section-separator">
+            <div class="sep-line"></div>
+            <div class="sep-badge">POSTAVY</div>
+            <div class="sep-line"></div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SEKCE: POSTAVY                             -->
+        <!-- ========================================== -->
+        <section class="characters-section" style="padding: 60px 30px; background-color: #050506; border-top: 1px solid rgba(166, 134, 66, 0.1);">
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px auto; font-size: 1.15rem; line-height: 1.6; color: #b0a99f; font-family: 'Almendra', serif;">
+                Ve hře na vás čekají propracované charaktery rozdělené do tří společenských vrstev. Každá postava má své vlastní cíle, tajemství a morální dilemata. Vyberte si stranu, za kterou budete na svatbě bojovat či intrikovat.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto;">
+                
+                <!-- Šlechta -->
+                <div style="background: #110f0c; border: 1px solid rgba(166,134,66,0.3); padding: 30px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+                    <div style="font-size: 2.5rem; color: #f1cc63; margin-bottom: 15px;">♔</div>
+                    <h3 style="font-family: 'Fondamento', serif; color: #f1cc63; margin-bottom: 15px; text-transform: uppercase;">Vznešená šlechta</h3>
+                    <p style="font-family: 'Almendra', serif; color: #ccc; line-height: 1.5; font-size: 0.95rem;">
+                        Páni z Lipé, rod Ruthardů a jejich nejbližší doprovod. V rukou držíte moc, peníze a politické osudy celé tvrze. Vaše slovo je zákon, ale o to těžší je si ho obhájit.
+                    </p>
+                </div>
+
+                <!-- Měšťané -->
+                <div style="background: #110f0c; border: 1px solid rgba(166,134,66,0.3); padding: 30px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+                    <div style="font-size: 2.5rem; color: #f1cc63; margin-bottom: 15px;">🜋</div>
+                    <h3 style="font-family: 'Fondamento', serif; color: #f1cc63; margin-bottom: 15px; text-transform: uppercase;">Bohatí měšťané</h3>
+                    <p style="font-family: 'Almendra', serif; color: #ccc; line-height: 1.5; font-size: 0.95rem;">
+                        Kutnohorští patricijové, kupci a vážení řemeslníci. Šlechta sice vládne mečem, ale vy ovládáte trh a finance. Bez vašich peněz by žádná svatba ani obnova tvrze nebyla možná.
+                    </p>
+                </div>
+
+                <!-- Poddaní / Vojáci -->
+                <div style="background: #110f0c; border: 1px solid rgba(166,134,66,0.3); padding: 30px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+                    <div style="font-size: 2.5rem; color: #f1cc63; margin-bottom: 15px;">⚔</div>
+                    <h3 style="font-family: 'Fondamento', serif; color: #f1cc63; margin-bottom: 15px; text-transform: uppercase;">Zbrojnoši a služebnictvo</h3>
+                    <p style="font-family: 'Almendra', serif; color: #ccc; line-height: 1.5; font-size: 0.95rem;">
+                        Věrná stráž Jana Ptáčka, kuchaři, lazebníci a místní poddaní. Oči a uši tvrze. Víte o každém šustnutí v kuloárech a když selže diplomacie, vaše zbraně zjednají pořádek.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PŘEDĚL: PŘIHLAŠOVÁNÍ -->
+        <div id="prihlasovani" class="section-separator" style="display: flex; align-items: center; justify-content: center; padding: 30px; background-color: #050506;">
+            <div style="flex: 1; height: 1px; background: linear-gradient(to right, transparent, #a68642, transparent);"></div>
+            <div style="font-family: 'Fondamento', serif; color: #f1cc63; border: 1px solid #a68642; padding: 15px 35px; font-size: 1.1rem; letter-spacing: 3px; background-color: #0b0b0d; text-transform: uppercase;">PŘIHLAŠOVÁNÍ</div>
+            <div style="flex: 1; height: 1px; background: linear-gradient(to right, transparent, #a68642, transparent);"></div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SEKCE: REGISTRACE / DOPIS                  -->
+        <!-- ========================================== -->
+        <section class="registration-section" style="padding: 60px 20px; background-color: #050506; display: flex; justify-content: center;">
+            <div class="parchment-letter" style="background: #e9dbaa; background-image: radial-gradient(circle at 50% 50%, #f4ebd0 0%, #e1ce9a 100%); border: 1px solid #c2b078; border-radius: 4px; max-width: 750px; width: 100%; padding: 60px 50px; box-shadow: 0 20px 40px rgba(0,0,0,0.8), inset 0 0 40px rgba(139,115,85,0.3); position: relative; box-sizing: border-box;">
+                
+                <!-- Okrasné křížky v rozích pergamenu -->
+                <div style="position: absolute; top: 15px; left: 15px; color: #8b7355; font-size: 1.2rem; opacity: 0.5;">✦</div>
+                <div style="position: absolute; top: 15px; right: 15px; color: #8b7355; font-size: 1.2rem; opacity: 0.5;">✦</div>
+                <div style="position: absolute; bottom: 15px; left: 15px; color: #8b7355; font-size: 1.2rem; opacity: 0.5;">✦</div>
+                <div style="position: absolute; bottom: 15px; right: 15px; color: #8b7355; font-size: 1.2rem; opacity: 0.5;">✦</div>
+
+                <h2 style="font-family: 'Fondamento', serif; color: #2e2211; font-size: 2.2rem; text-align: center; margin-top: 0; margin-bottom: 30px; letter-spacing: 1px; border-bottom: 2px dashed rgba(139,115,85,0.4); padding-bottom: 15px;">
+                    Všem pánům, rytířům i ctěným měšťanům
+                </h2>
+
+                <div style="font-family: 'Almendra', serif; color: #3a2e1c; font-size: 1.25rem; line-height: 1.7; text-align: justify; margin-bottom: 40px;">
+                    <span style="font-size: 3rem; float: left; line-height: 1; margin-right: 10px; font-family: 'Fondamento', serif; color: #8b2500; font-weight: bold;">N</span>
+                    a vědomost se dává, že brány tvrze Malešova se brzy otevřou, aby hostily slavný svatební doprovod. Kdož chováte v úmyslu připojit se k oslavám míru a stanout po boku Jana Ptáčka z Pirkštejna, nechť nenechá své jméno chybět na seznamu hostí.
+                </div>
+
+                <div style="background: rgba(139, 115, 85, 0.08); border: 1px solid rgba(139, 115, 85, 0.25); padding: 25px; margin-bottom: 40px; text-align: center; font-family: 'Almendra', serif;">
+                    <p style="margin: 0; font-size: 1.3rem; color: #1a120b; font-weight: bold;">
+                        Svitky s přihláškami budou otevřeny:
+                    </p>
+                    <p style="margin: 10px 0 0 0; font-size: 1.6rem; color: #8b2500; font-family: 'Fondamento', serif; letter-spacing: 1px;">
+                        od 19. ledna do 31. ledna
+                    </p>
+                    <p style="margin: 10px 0 0 0; font-size: 1rem; color: #5c4a37; font-style: italic;">
+                        (Po tomto datu přijímá purgmistr pouze náhradníky do stráže)
+                    </p>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <a href=" " target="_blank" style="display: inline-block; font-family: 'Fondamento', serif; color: #f4ebd0; background: #8b2500; border: 2px solid #5c1a00; padding: 18px 40px; text-decoration: none; font-size: 1.25rem; letter-spacing: 2px; font-weight: bold; border-radius: 3px; box-shadow: 0 8px 20px rgba(0,0,0,0.3), inset 0 0 15px rgba(0,0,0,0.4); text-transform: uppercase; transition: all 0.2s ease;">
+                        ✒ Potvrdit svoji účast (registrace)
+                    </a>
+                </div>
+
+                <div style="border-top: 1px solid rgba(139, 115, 85, 0.3); padding-top: 25px; text-align: left; font-family: 'Almendra', serif;">
+                    <h4 style="font-family: 'Fondamento', serif; color: #5c4a37; font-size: 1.1rem; margin-top: 0; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">
+                        O pořádku při zápisu:
+                    </h4>
+                    <p style="font-size: 1.05rem; line-height: 1.6; color: #4a3b2c; margin: 0; font-style: italic;">
+                        Každý z písařů a autorů drží právo jednoho žolíka pro obsazení postavy vznešené. Zbylé dvě třetiny míst na hostině budou spravedlivě vylosovány mezi všechny řádné žadatele podle jejich vůle a preferencí.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PŘEDĚL: TVOŘITELÉ PŘÍBĚHU -->
+        <div id="autori" class="section-separator" style="display: flex; align-items: center; justify-content: center; padding: 30px; background-color: #050506;">
+            <div style="flex: 1; height: 1px; background: linear-gradient(to right, transparent, #a68642, transparent);"></div>
+            <div style="font-family: 'Fondamento', serif; color: #f1cc63; border: 1px solid #a68642; padding: 15px 35px; font-size: 1.1rem; letter-spacing: 3px; background-color: #0b0b0d; text-transform: uppercase;">TVOŘITELÉ PŘÍBĚHU</div>
+            <div style="flex: 1; height: 1px; background: linear-gradient(to right, transparent, #a68642, transparent);"></div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SEKCE: AUTOŘI                              -->
+        <!-- ========================================== -->
+        <section class="authors-section" style="padding: 40px 20px 60px 20px; background-color: #050506;">
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1100px; margin: 0 auto;">
+                
+                <!-- ŠLECHTICKÉ OKÉNKO: DAVID VÁVRA -->
+                <div style="background: #110f0c; border: 1px solid #a68642; border-radius: 3px; padding: 40px 25px; text-align: center; box-shadow: 0 15px 30px rgba(0,0,0,0.6); max-width: 450px; flex: 1; min-width: 300px; box-sizing: border-box;">
+                    <div style="width: 180px; height: 180px; border-radius: 50%; border: 2px solid #a68642; margin: 0 auto 20px auto; background: #0b0908; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.5);">
+                        <img src="83d54a0d-633c-4fd4-aa6f-4446d036d945.jpg" alt="David Vávra" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+
+                    <h3 style="font-family: 'Fondamento', serif; color: #f1cc63; font-size: 1.4rem; margin: 0 0 5px 0; letter-spacing: 1px; text-transform: uppercase;">
+                        David Vávra
+                    </h3>
+                    <p style="font-family: 'Fondamento', serif; color: #a68642; font-style: italic; margin: 0 0 20px 0; font-size: 1rem; letter-spacing: 0.5px;">
+                        Nejvyšší hofmistr malešovského skriptoria, strážce loru a hrdina v kroužkové zbroji
+                    </p>
+
+                    <div style="color: rgba(166, 134, 66, 0.3); font-size: 0.7rem; margin-bottom: 20px; letter-spacing: 2px;">✦ ✦ ✦</div>
+
+                    <p style="font-family: 'Almendra', serif; font-size: 1.05rem; line-height: 1.6; color: #b0a99f; text-align: justify; margin: 0;">
+                        Urozený pán, jenž po vzoru slavných mistrů z Warhorse chopil se brku, aby do kroniky Posázaví vetkal nový příběh. Zatímco na bojišti a v kroužkové zbroji neohroženě krotí herní mechaniky, u dvorského stolu rychle ustupuje do pozadí. Říká se o něm, že dokáže naplánovat ty nejkomplexnější politické intriky celého království, avšak doma na tvrzi poslušně plní rozkazy své choti a na slovo poslouchá její suverénní regentskou vůli.
+                    </p>
+                </div>
+
+                <!-- ŠLECHTICKÉ OKÉNKO: BÁRA DRBOHLAVOVÁ -->
+                <div style="background: #110f0c; border: 1px solid #a68642; border-radius: 3px; padding: 40px 25px; text-align: center; box-shadow: 0 15px 30px rgba(0,0,0,0.6); max-width: 450px; flex: 1; min-width: 300px; box-sizing: border-box;">
+                    <div style="width: 180px; height: 180px; border-radius: 50%; border: 2px solid #a68642; margin: 0 auto 20px auto; background: #0b0908; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.5);">
+                        <img src="1b142997-2f08-4d88-bcb5-43d9ac618bf9.jpg" alt="Bára Drbohlavová" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+
+                    <h3 style="font-family: 'Fondamento', serif; color: #f1cc63; font-size: 1.4rem; margin: 0 0 5px 0; letter-spacing: 1px; text-transform: uppercase;">
+                        Bára Drbohlavová
+                    </h3>
+                    <p style="font-family: 'Fondamento', serif; color: #a68642; font-style: italic; margin: 0 0 20px 0; font-size: 1rem; letter-spacing: 0.5px;">
+                        Svrchovaná paní na Malešově, nejvyšší purkmistryně a majitelka Davidova meče i osudu
+                    </p>
+
+                    <div style="color: rgba(166, 134, 66, 0.3); font-size: 0.7rem; margin-bottom: 20px; letter-spacing: 2px;">✦ ✦ ✦</div>
+
+                    <p style="font-family: 'Almendra', serif; font-size: 1.05rem; line-height: 1.6; color: #b0a99f; text-align: justify; margin: 0;">
+                        Moudrá a nekompromisní šlechtična, která odmítá sedět v koutě a vyšívat ubrusy. Naopak – pevnou rukou spravuje cechovní pokladnice, velí hradní logistice a drží absolutní právo veta nad chodem celé tvrze. Žádný krejčí neušije kostým bez jejího schválení a žádný urozený pán (včetně jejího chotě Davida) neučiní zásadní rozhodnutí bez jejího vědomí. Je skutečnou vládkyní nad zdejšími kraji, která dokazuje, že za každým mocným mužem stojí ještě mocnější žena, jež ho s úsměvem vlastní.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- PATIČKA (FOOTER)                           -->
+        <!-- ========================================== -->
+        <footer id="autori" class="main-footer">
+            <p>© 2026 Tým organizátorů | Inspirováno světem Kingdom Come: Deliverance</p>
+            <p class="disclaimer">
+                Toto je fanouškovský neziskový projekt vytvořený komunitou pro komunitu. Máme neoficiální posvěcení od studia Warhorse pro využití značky.
+            </p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
