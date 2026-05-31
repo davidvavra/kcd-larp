@@ -1,4 +1,76 @@
 @font-face {
+    font-family: 'Fondamento';
+    src: url('fonts/fondamento-regular-ext.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fondamento';
+    src: url('fonts/fondamento-italic-ext.woff2') format('woff2');
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Almendra';
+    src: url('fonts/almendra-regular.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Almendra';
+    src: url('fonts/almendra-italic.woff2') format('woff2');
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Almendra';
+    src: url('fonts/almendra-700.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Almendra';
+    src: url('fonts/almendra-700italic.woff2') format('woff2');
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pangaia';
+    src: url('fonts/pppangaia-bold.otf') format('opentype');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pangaia';
+    src: url('fonts/pppangaia-ultralight.otf') format('opentype');
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AdobeCalson';
+    src: url('fonts/adobe-calson-font.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'Osgard';
     src: url('fonts/osgard.otf') format('opentype');
     font-style: normal;
@@ -44,7 +116,7 @@ body {
     background-size: 400px;
     background-color: var(--bg-deep-black);
     color: var(--text-light);
-    font-family: 'Almendra', serif;
+    font-family: 'AdobeCalson', serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -89,7 +161,7 @@ body {
 }
 
 .hero-meta-top {
-    font-family: 'Fondamento', serif;
+    font-family: 'Pangaia', serif;
     font-size: 1.05rem;
     letter-spacing: 5px;
     color: var(--gold-bright);
@@ -230,7 +302,7 @@ body {
 
 /* HERNÍ TVAR TLAČÍTKA */
 .ui-cta-button {
-    font-family: 'Fondamento', serif;
+    font-family: 'Pangaia', serif;
     text-transform: uppercase;
     text-decoration: none;
     padding: 6px 28px;
@@ -387,14 +459,14 @@ body {
 }
 
 .practical-item-title {
-    font-family: 'Fondamento', serif;
+    font-family: 'Pangaia', serif;
     color: var(--gold-bright);
     font-size: 1.4rem;
     margin-bottom: 8px;
 }
 
 .practical-item-desc {
-    font-family: 'Almendra', serif;
+    font-family: 'AdobeCalson', serif;
     font-size: 1.1rem;
     line-height: 1.6;
     color: var(--text-muted);
@@ -453,13 +525,13 @@ body {
 }
 
 .row-item-title {
-    font-family: 'Fondamento', serif;
+    font-family: 'Pangaia', serif;
     color: var(--gold-bright);
     margin-bottom: 4px;
 }
 
 .character-desc {
-    font-family: 'Almendra', serif;
+    font-family: 'AdobeCalson', serif;
     font-size: 1rem;
     color: var(--text-light);
     line-height: 1.4;
@@ -478,7 +550,7 @@ body {
 
 /* Author Details (Section: autori) */
 .author-title {
-    font-family: 'Fondamento', serif;
+    font-family: 'Pangaia', serif;
     color: var(--gold-dark);
     font-style: italic;
     font-size: 0.9rem;
@@ -486,7 +558,7 @@ body {
 }
 
 .author-desc {
-    font-family: 'Almendra', serif;
+    font-family: 'AdobeCalson', serif;
     font-size: 0.95rem;
     color: var(--text-light);
     line-height: 1.4;
@@ -539,7 +611,7 @@ body {
 }
 
 .o-hre-text h3 {
-    font-family: 'Fondamento', serif;
+    font-family: 'Pangaia', serif;
     color: var(--gold-bright);
     font-size: 1.6rem;
     margin-bottom: 15px;
@@ -547,7 +619,7 @@ body {
 }
 
 .o-hre-text p {
-    font-family: 'Almendra', serif;
+    font-family: 'AdobeCalson', serif;
     font-size: 1.2rem;
     line-height: 1.7;
     color: var(--text-muted);
@@ -601,7 +673,7 @@ body {
 /* Section: postavy */
 .postavy-subtitle {
     text-align: center;
-    font-family: 'Fondamento', serif;
+    font-family: 'Pangaia', serif;
     color: var(--gold-dark);
     font-size: 1rem;
     margin-bottom: 30px;
@@ -615,7 +687,7 @@ body {
     gap: 20px;
     flex-wrap: wrap;
     margin-bottom: 40px;
-    font-family: 'Fondamento', serif;
+    font-family: 'Pangaia', serif;
     color: var(--gold-bright);
 }
 
@@ -658,7 +730,7 @@ body {
 }
 
 .social-links a span {
-    font-family: 'Fondamento', serif;
+    font-family: 'Pangaia', serif;
 }
 
 .social-links a:hover {
