@@ -1,0 +1,837 @@
+/* --- KCD & NOSEDIVE DESIGN SYSTÉM --- */
+:root {
+    --gold-bright: #f1cc63;
+    --gold-dark: #a68642;
+    --gold-dim: #8a713e;
+    --bg-dark: #0a0a0b;
+    --bg-deep-black: #050506;
+    --text-light: #e6e6e6;
+    --text-muted: #b0a99f;
+}
+
+/* --- ZÁKLADNÍ CONFIG & RESPONSIVE FIXES --- */
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Zákaz horizontálního scrollu */
+}
+
+html {
+    scroll-padding-top: 130px; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url('pozadi.png');
+    background-repeat: repeat;
+    background-size: 400px;
+    background-color: var(--bg-deep-black);
+    color: var(--text-light);
+    font-family: 'Almendra', serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ========================================== */
+/* ÚVODNÍ OBRAZOVKA PŘES CELÝ MONITOR (HERO)  */
+/* ========================================== */
+.hero-wedding-header {
+    width: 100%;
+    height: 100vh; /* Přesně 100% výšky obrazovky */
+    position: relative;
+    background: linear-gradient(
+            to bottom, 
+            rgba(10, 10, 11, 0.85) 0%, 
+            rgba(10, 10, 11, 0.4) 50%, 
+            rgba(10, 10, 11, 0.9) 100%
+        ), 
+        url('svatba.png');
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    
+    /* Vycentrování textu uprostřed monitoru */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 3px solid var(--gold-dark);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Vnitřní obal textu pro zachování šířky */
+.header-content-wrapper {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 40px;
+    /* Mírný posun nahoru, aby byl text opticky vycentrovaný nad menu */
+    transform: translateY(-40px); 
+}
+
+.hero-meta-top {
+    font-family: 'Fondamento', serif;
+    font-size: 1.05rem;
+    letter-spacing: 5px;
+    color: var(--gold-bright);
+    text-transform: uppercase;
+    margin-bottom: 35px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+}
+
+.hero-title-zone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 15px 0;
+}
+
+.hero-decorator {
+    font-size: 2.5rem;
+    color: var(--gold-bright);
+    text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+    user-select: none;
+}
+
+.main-wedding-title {
+    font-family: 'UnifrakturMaguntia', serif;
+    font-size: 4.5rem;
+    color: #ffffff;
+    font-weight: 400;
+    line-height: 1.1;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.main-wedding-title small {
+    font-family: 'Fondamento', serif;
+    font-size: 2.4rem;
+    color: var(--gold-bright);
+    display: block;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+}
+
+.hero-text-bottom {
+    font-family: 'Almendra', serif;
+    font-size: 1.4rem;
+    line-height: 1.65;
+    color: var(--text-light);
+    max-width: 900px;
+    margin: 45px auto 0 auto;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
+}
+
+/* ========================================== */
+/* NAVIGACE POZICE   */
+/* ========================================== */
+.game-navigation {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(45,35,24,0.98),
+        rgba(18,14,10,0.98)
+    );
+    border-top: 1px solid #d1aa52;
+    border-bottom: 1px solid #6e5529;
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.75),
+        inset 0 1px 0 rgba(255,255,255,.08),
+        inset 0 -1px 0 rgba(0,0,0,.5);
+    overflow: visible;
+    position: fixed;
+}
+
+.nav-ornament-left,
+.nav-ornament-right {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.nav-ornament-left {
+    left: 0;
+}
+
+.nav-ornament-right {
+    right: 0;
+}
+
+.nav-ornament-left img {
+    height: 90px;
+    width: auto;
+    display: block;
+    margin: -20px;
+    padding: 10px;
+}
+
+.nav-ornament-right img {
+    height: 70px;
+    width: auto;
+    display: block;
+}
+
+.nav-container-inner {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 130px; 
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    font-family: 'Fondamento', serif;
+    color: var(--gold-dark);
+    text-decoration: none;
+    font-size: 1.15rem;
+    padding: 20px 15px;
+    letter-spacing: 1.5px;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.nav-links a:hover {
+    color: var(--gold-bright);
+    text-shadow: 0 0 10px rgba(241, 204, 99, 0.6);
+}
+
+.nav-links .sep {
+    color: var(--gold-dim);
+    font-size: 0.7rem;
+    opacity: 0.4;
+    user-select: none;
+}
+
+/* HERNÍ TVAR TLAČÍTKA */
+.ui-cta-button {
+    font-family: 'Fondamento', serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 6px 28px;
+    border: 2px solid var(--gold-dark);
+    background: linear-gradient(to bottom, #2d2318 0%, #17120c 100%);
+    color: var(--gold-bright);
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 1px 3px rgba(255,255,255,0.1);
+    transition: all 0.15s ease-in-out;
+    white-space: nowrap;
+}
+
+.ui-cta-button:hover {
+    background: var(--gold-bright);
+    color: #000000;
+    border-color: #ffffff;
+    box-shadow: 0 0 20px rgba(241, 204, 99, 0.7);
+    cursor: pointer;
+}
+
+/* ========================================== */
+/* HLAVNÍ CONTAINER PRO OBSAHOVÉ SEKCE        */
+/* ========================================== */
+.web-container {
+    width: 100%;
+    max-width: 1250px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+    margin: 100px auto;
+    padding: 0;
+}
+
+.ui-content-panel {
+    background-color: var(--bg-dark);
+    background-image: linear-gradient(to bottom, #0d0d0f, #060607);
+    border-left: 3px solid var(--gold-dark);
+    border-right: 3px solid var(--gold-dark);
+    border-bottom: 3px solid var(--gold-dark);
+    padding: 60px 50px;
+    position: relative;
+}
+
+.ui-content-panel:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: -38px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 80px;
+    background: url("rozdelovac2.png") center center / contain no-repeat;
+    z-index: 30;
+}
+
+.panel-heading {
+    font-family: 'Fondamento', serif;
+    color: var(--gold-bright);
+    font-size: 2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.panel-heading::before, .panel-heading::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+}
+
+.kcd-photo-effect {
+    filter: sepia(0.2) contrast(1.05) brightness(0.9);
+}
+
+/* FOOTER */
+.main-footer {
+    background-color: var(--bg-deep-black);
+    border-left: 3px solid var(--gold-dark);
+    border-right: 3px solid var(--gold-dark);
+    border-bottom: 3px solid var(--gold-dark);
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.main-footer p {
+    color: var(--gold-dim);
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.main-footer .disclaimer {
+    font-style: italic;
+    color: #44444a;
+    font-size: 0.85rem;
+    margin-top: 15px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
+}
+
+/* Styling pro odkaz v patičce */
+.main-footer a {
+    color: var(--gold-dim);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.main-footer a:hover {
+    color: var(--gold-bright);
+}
+
+#o-hre {
+    border-top: 3px solid var(--gold-dark);
+    position: relative;
+}
+
+#o-hre::before {
+    content: "";
+    position: absolute;
+    top: -78px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 150px;
+    background: url("rozdelovac3.png") center center / contain no-repeat;
+    z-index: 30;
+}
+
+
+/* ========================================== */
+/* EXTRACTED STYLES FOR REPEATED INLINE ATTRS */
+/* ========================================== */
+
+/* Practical Items (Section: prakticke) */
+.practical-item-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.practical-icon-wrapper {
+    font-size: 1.8rem;
+    min-width: 40px;
+    text-align: center;
+}
+
+.practical-item-title {
+    font-family: 'Fondamento', serif;
+    color: var(--gold-bright);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.practical-item-desc {
+    font-family: 'Almendra', serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* Character Tags (Section: postavy) */
+.character-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.character-tag-img {
+    width: 40px;
+}
+
+.star-separator {
+    color: var(--gold-dim);
+    opacity: 0.5;
+}
+
+/* Shared List Layouts */
+.centered-list-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-row-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 0;
+    border-bottom: 1px solid rgba(166, 134, 66, 0.2);
+}
+
+.portrait-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid var(--gold-dark);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flex-grow-item {
+    flex-grow: 1;
+}
+
+.row-item-title {
+    font-family: 'Fondamento', serif;
+    color: var(--gold-bright);
+    margin-bottom: 4px;
+}
+
+.character-desc {
+    font-family: 'Almendra', serif;
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+.character-badges {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.character-badge-img {
+    width: 50px;
+    opacity: 0.8;
+}
+
+/* Author Details (Section: autori) */
+.author-title {
+    font-family: 'Fondamento', serif;
+    color: var(--gold-dark);
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.author-desc {
+    font-family: 'Almendra', serif;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+.author-badges {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.author-badge-img {
+    width: 30px;
+    opacity: 0.8;
+}
+
+.author-social-img {
+    width: 25px;
+    opacity: 0.6;
+    margin-left: 10px;
+}
+
+
+/* ========================================== */
+/* EXTRACTED UNIQUE INLINE STYLES FOR CLEANUP */
+/* ========================================== */
+
+/* Section: o-hre */
+.o-hre-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.o-hre-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.o-hre-image img {
+    width: 100%;
+    border: 2px solid var(--gold-dark);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.o-hre-text {
+    flex: 1.5;
+    min-width: 300px;
+}
+
+.o-hre-text h3 {
+    font-family: 'Fondamento', serif;
+    color: var(--gold-bright);
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.o-hre-text p {
+    font-family: 'Almendra', serif;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    text-align: justify;
+}
+
+/* Section: prakticke (Henry BG section) */
+#prakticke {
+    background-image: linear-gradient(to bottom, #060607, #0d0d0f);
+    position: relative;
+    padding: 60px 50px;
+    min-height: 600px;
+}
+
+.prakticke-bg-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 0;
+    background-image: url('henry.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top right;
+    mask-image: linear-gradient(to left, black 40%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to left, black 40%, transparent 100%);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.prakticke-content-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#prakticke .panel-heading {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.prakticke-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 600px;
+}
+
+/* Section: postavy */
+.postavy-subtitle {
+    text-align: center;
+    font-family: 'Fondamento', serif;
+    color: var(--gold-dark);
+    font-size: 1rem;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+}
+
+.postavy-tags-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    font-family: 'Fondamento', serif;
+    color: var(--gold-bright);
+}
+
+/* Section: prihlasovani */
+#prihlasovani {
+    background-image: linear-gradient(to bottom, #0d0d0f, #050506);
+}
+
+.prihlasovani-wrapper {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.prihlasovani-text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 35px;
+}
+
+.ui-cta-button-large {
+    font-size: 1.2rem;
+    padding: 15px 40px;
+}
+
+/* Section: footer */
+.social-links {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: var(--gold-dark);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a span {
+    font-family: 'Fondamento', serif;
+}
+
+.social-links a:hover {
+    color: var(--gold-bright);
+}
+
+/* Back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    text-decoration: none;
+    font-size: 2rem;
+    color: var(--gold-dark);
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.back-to-top:hover {
+    opacity: 1;
+    color: var(--gold-bright);
+}
+
+.back-to-top-icon {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--gold-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10, 10, 11, 0.8);
+}
+
+
+/* ========================================== */
+/* RESPONSIVITA PRO MOBILY A MENŠÍ TABLETY    */
+/* ========================================== */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--gold-bright);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 950px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+        
+    .hero-wedding-header { 
+        height: auto; 
+        min-height: 100vh; /* Na mobilu se výška přizpůsobí, pokud by byl text moc dlouhý */
+        padding: 160px 0 120px 0; /* Prostor pro menu dole */
+    }
+    .header-content-wrapper { 
+        transform: none; 
+        padding: 0 20px; 
+    }
+    .main-wedding-title { 
+        font-size: 2.2rem; 
+    }
+    .main-wedding-title small { 
+        font-size: 1.3rem; 
+    }
+    
+    /* Skrytí dekorací na mobilu, aby se text neroztahoval do stran */
+    .hero-decorator { 
+        display: none; 
+    }
+    .hero-text-bottom { 
+        font-size: 1.15rem; 
+        padding: 0; 
+        margin-top: 30px; 
+    }
+    .hero-meta-top { 
+        font-size: 0.9rem; 
+        letter-spacing: 2px; 
+        margin-bottom: 20px; 
+    }
+    
+    .nav-container-inner {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 10px;
+    }
+    
+    .nav-links { 
+        flex-direction: column; 
+        gap: 5px; 
+        justify-content: center; 
+        width: 100%; 
+    }
+    .nav-links .sep { 
+        display: none; 
+    }
+    .nav-links a { 
+        padding: 5px 10px; 
+        font-size: 1.05rem; 
+    }
+    
+    .web-container { 
+        padding: 0; 
+        margin: 20px auto; 
+    }
+    .ui-content-panel { 
+        padding: 40px 20px; 
+        border-left: none; 
+        border-right: none; 
+    }
+    
+    .main-footer { 
+        border-left: none; 
+        border-right: none; 
+    }
+}
+
+/* Úprava pro mobily */
+@media (max-width: 600px) {
+    /* Zmenšení ikonek v sekci postav a autorů */
+    .author-badge-img {
+        width: 24px !important;
+    }
+    
+    /* Vycentrování avatarů na mobilu */
+    .portrait-circle,
+    .ui-content-panel img {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Pojistka proti přetékání čehokoliv */
+    body, html {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 600px) {
+    /* 1. Fix Navigace: Aby se menu na mobilu nerozpadlo */
+    .nav-container-inner { 
+        flex-direction: column !important; 
+        gap: 15px !important; 
+    }
+
+    /* 2. Fix Harmonogram: Zarovnání obsahu sekcí doleva */
+    .ui-content-panel { 
+        text-align: left !important; 
+    }
+
+    /* 3. Fix Tlačítka: Aby dlouhý text tlačítko nerozbil */
+    .ui-cta-button { 
+        white-space: normal !important; 
+        display: inline-block !important; 
+        width: auto !important; 
+        max-width: 90% !important; 
+        text-align: center !important; 
+        padding: 10px 15px !important; 
+    }
+}

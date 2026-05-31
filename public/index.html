@@ -13,714 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400&family=Fondamento:ital@0;1&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
-	
-    <style>
-        /* --- KCD & NOSEDIVE DESIGN SYSTÉM --- */
-        :root {
-            --gold-bright: #f1cc63;
-            --gold-dark: #a68642;
-            --gold-dim: #8a713e;
-            --bg-dark: #0a0a0b;
-            --bg-deep-black: #050506;
-            --text-light: #e6e6e6;
-            --text-muted: #b0a99f;
-        }
-
-        /* --- ZÁKLADNÍ CONFIG & RESPONSIVE FIXES --- */
-        html, body {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden; /* Zákaz horizontálního scrollu */
-        }
-		
-		html {
-    /* Nastav hodnotu podle toho, jak vysoké je tvé menu (např. 60px až 80px) */
-    scroll-padding-top: 130px; 
-}
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-			background-image: url('pozadi.png');
-            background-repeat: repeat;
-            background-size: 400px;
-            background-color: var(--bg-deep-black);
-            color: var(--text-light);
-            font-family: 'Almendra', serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* ========================================== */
-        /* ÚVODNÍ OBRAZOVKA PŘES CELÝ MONITOR (HERO)  */
-        /* ========================================== */
-        .hero-wedding-header {
-            width: 100%;
-            height: 100vh; /* Přesně 100% výšky obrazovky */
-            position: relative;
-            background: linear-gradient(
-                    to bottom, 
-                    rgba(10, 10, 11, 0.85) 0%, 
-                    rgba(10, 10, 11, 0.4) 50%, 
-                    rgba(10, 10, 11, 0.9) 100%
-                ), 
-                url('svatba.png');
-            background-size: cover;
-            background-position: center 30%;
-            background-repeat: no-repeat;
-            
-            /* Vycentrování textu uprostřed monitoru */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            border-bottom: 3px solid var(--gold-dark);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
-        }
-
-        /* Vnitřní obal textu pro zachování šířky */
-        .header-content-wrapper {
-            width: 100%;
-            max-width: 1250px;
-            margin: 0 auto;
-            padding: 0 40px;
-            /* Mírný posun nahoru, aby byl text opticky vycentrovaný nad menu */
-            transform: translateY(-40px); 
-        }
-
-        .hero-meta-top {
-            font-family: 'Fondamento', serif;
-            font-size: 1.05rem;
-            letter-spacing: 5px;
-            color: var(--gold-bright);
-            text-transform: uppercase;
-            margin-bottom: 35px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
-        }
-
-        .hero-title-zone {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            margin: 15px 0;
-        }
-
-        .hero-decorator {
-            font-size: 2.5rem;
-            color: var(--gold-bright);
-            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
-            user-select: none;
-        }
-
-        .main-wedding-title {
-            font-family: 'UnifrakturMaguntia', serif;
-            font-size: 4.5rem;
-            color: #ffffff;
-            font-weight: 400;
-            line-height: 1.1;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 0, 0, 0.7);
-        }
-
-        .main-wedding-title small {
-            font-family: 'Fondamento', serif;
-            font-size: 2.4rem;
-            color: var(--gold-bright);
-            display: block;
-            margin-top: 20px;
-            letter-spacing: 2px;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
-        }
-
-        .hero-text-bottom {
-            font-family: 'Almendra', serif;
-            font-size: 1.4rem;
-            line-height: 1.65;
-            color: var(--text-light);
-            max-width: 900px;
-            margin: 45px auto 0 auto;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
-        }
-
-        /* ========================================== */
-        /* NAVIGACE POZICE   */
-        /* ========================================== */
- .game-navigation {
-
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-	margin: 0;
-    padding: 0;
-
-    background: linear-gradient(
-        to bottom,
-        rgba(45,35,24,0.98),
-        rgba(18,14,10,0.98)
-    );
-
-    border-top: 1px solid #d1aa52;
-    border-bottom: 1px solid #6e5529;
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.75),
-        inset 0 1px 0 rgba(255,255,255,.08),
-        inset 0 -1px 0 rgba(0,0,0,.5);
-
-    overflow: visible;
-
-    position: fixed;
-}
-
-.nav-ornament-left,
-.nav-ornament-right {
-    position: absolute;
-    top: 40%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    z-index: 10;
-}
-
-.nav-ornament-left {
-    left: 0;
-}
-
-.nav-ornament-right {
-    right: 0;
-}
-
-.nav-ornament-left img {
-    height: 90px;
-    width: auto;
-    display: block;
-	margin: -20px;
-	padding: 10px;
-}
-
-.nav-ornament-right img {
-    height: 70px;
-    width: auto;
-    display: block;
-}
-		
-
-        .nav-container-inner {
-    width: 100%;
-    max-width: 1250px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 130px; 
-}
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            font-family: 'Fondamento', serif;
-            color: var(--gold-dark);
-            text-decoration: none;
-            font-size: 1.15rem;
-            padding: 20px 15px;
-            letter-spacing: 1.5px;
-            transition: all 0.2s ease;
-            display: inline-block;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold-bright);
-            text-shadow: 0 0 10px rgba(241, 204, 99, 0.6);
-        }
-
-        .nav-links .sep {
-            color: var(--gold-dim);
-            font-size: 0.7rem;
-            opacity: 0.4;
-            user-select: none;
-        }
-
-        /* HERNÍ TVAR TLAČÍTKA */
-        .ui-cta-button {
-            font-family: 'Fondamento', serif;
-            text-transform: uppercase;
-            text-decoration: none;
-            padding: 6px 28px;
-            border: 2px solid var(--gold-dark);
-            background: linear-gradient(to bottom, #2d2318 0%, #17120c 100%);
-            color: var(--gold-bright);
-            font-weight: bold;
-            letter-spacing: 1.5px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 1px 3px rgba(255,255,255,0.1);
-            transition: all 0.15s ease-in-out;
-            white-space: nowrap;
-        }
-
-        .ui-cta-button:hover {
-            background: var(--gold-bright);
-            color: #000000;
-            border-color: #ffffff;
-            box-shadow: 0 0 20px rgba(241, 204, 99, 0.7);
-            cursor: pointer;
-        }
-
-        /* ========================================== */
-        /* HLAVNÍ CONTAINER PRO OBSAHOVÉ SEKCE        */
-        /* ========================================== */
-        .web-container {
-            width: 100%;
-            max-width: 1250px;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
-            margin: 100px auto;
-            padding: 0;
-        }
-
-        .ui-content-panel {
-            background-color: var(--bg-dark);
-            background-image: linear-gradient(to bottom, #0d0d0f, #060607);
-            border-left: 3px solid var(--gold-dark);
-            border-right: 3px solid var(--gold-dark);
-            border-bottom: 3px solid var(--gold-dark);
-            padding: 60px 50px;
-			position: relative;
-        }
-		
-		.ui-content-panel:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    bottom: -38px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: 500px;
-    height: 80px;
-
-    background:
-        url("rozdelovac2.png")
-        center center / contain
-        no-repeat;
-
-    z-index: 30;
-}
-
-        /* Horní rámeček pro první sekci pod videem, aby navazoval na zbytek */
-        #o-hre {
-            border-top: 3px solid var(--gold-dark);
-        }
-
-        .panel-heading {
-            font-family: 'Fondamento', serif;
-            color: var(--gold-bright);
-            font-size: 2rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .panel-heading::before, .panel-heading::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
-        }
-
-        /* GRID PRO OBSAH */
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .ui-card-slot {
-            background-color: #0f0f11;
-            border: 1px solid rgba(166, 134, 66, 0.2);
-            padding: 35px 25px;
-            text-align: center;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
-            transition: border-color 0.3s;
-        }
-
-        .ui-card-slot:hover {
-            border-color: var(--gold-dark);
-        }
-
-        .slot-badge {
-            font-size: 2.5rem;
-            color: var(--gold-dark);
-            margin-bottom: 20px;
-        }
-
-        .ui-card-slot h3 {
-            font-family: 'Fondamento', serif;
-            color: var(--gold-bright);
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .ui-card-slot p {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-        }
-
-        /* SEZNAMY V QUEST-LOG STYLU */
-        .quest-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .quest-row {
-            display: flex;
-            align-items: center;
-            background: rgba(15, 15, 17, 0.6);
-            border: 1px solid rgba(166, 134, 66, 0.15);
-            padding: 25px 30px;
-            gap: 25px;
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
-        }
-
-        .quest-icon {
-            font-size: 1.8rem;
-            color: var(--gold-dark);
-            min-width: 40px;
-            text-align: center;
-        }
-
-        .quest-details h3 {
-            font-family: 'Fondamento', serif;
-            color: var(--gold-bright);
-            font-size: 1.3rem;
-            margin-bottom: 6px;
-        }
-
-        .quest-details p {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* TVOŘITELÉ PŘÍBĚHU */
-        .authors-layout {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .author-ui-box {
-            background: #0f0f11;
-            border: 1px solid rgba(166, 134, 66, 0.25);
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            max-width: 500px;
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .author-portrait {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 2px solid var(--gold-dark);
-            margin: 0 auto 25px auto;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.6);
-        }
-
-        .author-portrait img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .author-ui-box h3 {
-            font-family: 'Fondamento', serif;
-            color: var(--gold-bright);
-            font-size: 1.4rem;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .author-ui-box .title-tag {
-            font-family: 'Fondamento', serif;
-            color: var(--gold-dark);
-            font-style: italic;
-            margin-bottom: 20px;
-            font-size: 1rem;
-        }
-
-        .author-ui-box p {
-            font-family: 'Almendra', serif;
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-            text-align: justify;
-        }
-
-        .kcd-photo-effect {
-            filter: sepia(0.2) contrast(1.05) brightness(0.9);
-        }
-
-        /* FOOTER */
-        .main-footer {
-            background-color: var(--bg-deep-black);
-            border-left: 3px solid var(--gold-dark);
-            border-right: 3px solid var(--gold-dark);
-            border-bottom: 3px solid var(--gold-dark);
-            padding: 40px 30px;
-            text-align: center;
-        }
-
-        .main-footer p {
-            color: var(--gold-dim);
-            font-size: 1rem;
-            letter-spacing: 1px;
-        }
-
-        .main-footer .disclaimer {
-            font-style: italic;
-            color: #44444a;
-            font-size: 0.85rem;
-            margin-top: 15px;
-            max-width: 750px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.4;
-        }
-
-
-        /* ========================================== */
-        /* RESPONSIVITA PRO MOBILY A MENŠÍ TABLETY    */
-        /* ========================================== */
-		
-		.mobile-menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--gold-bright);
-    font-size: 2rem;
-    cursor: pointer;
-}
-		
-        @media (max-width: 950px) {
-
-		
-		
-    .mobile-menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        color: var(--gold-bright);
-        font-size: 2rem;
-        cursor: pointer;
-    }
-	
-	   .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 15px;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-		
-            .hero-wedding-header { 
-                height: auto; 
-                min-height: 100vh; /* Na mobilu se výška přizpůsobí, pokud by byl text moc dlouhý */
-                padding: 160px 0 120px 0; /* Prostor pro menu dole */
-            }
-            .header-content-wrapper { transform: none; padding: 0 20px; }
-            .main-wedding-title { font-size: 2.2rem; }
-            .main-wedding-title small { font-size: 1.3rem; }
-            
-            /* Skrytí dekorací na mobilu, aby se text neroztahoval do stran */
-            .hero-decorator { display: none; }
-            .hero-text-bottom { font-size: 1.15rem; padding: 0; margin-top: 30px; }
-            .hero-meta-top { font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 20px; }
-            
-            /* Menu na mobilu zůstává na spodku úvodní sekce */
-      
-           .nav-container-inner {
-    flex-direction: column;
-    align-items: center;
-    padding: 15px 10px;
-}
-            .nav-links { flex-direction: column; gap: 5px; justify-content: center; width: 100%; }
-            .nav-links .sep { display: none; }
-            .nav-links a { padding: 5px 10px; font-size: 1.05rem; }
-            
-            .web-container { padding: 0; margin: 20px auto; }
-            .ui-content-panel { padding: 40px 20px; border-left: none; border-right: none; }
-            #o-hre { border-top: none; } /* Na mobilu splyne bez horní linky */
-            .quest-row { flex-direction: column; text-align: center; gap: 10px; padding: 20px 15px; }
-            .author-ui-box { min-width: 100%; padding: 30px 15px; }
-            
-            .main-footer { border-left: none; border-right: none; }
-        }
-		
-		/* Úprava pro mobily */
-@media (max-width: 600px) {
-    /* Zmenšení ikonek v sekci postav a autorů */
-    .ui-content-panel img[style*="width: 30px"] {
-        width: 24px !important;
-    }
-
-    
-    /* Vycentrování avatarů na mobilu */
-    .ui-content-panel .author-portrait, 
-    .ui-content-panel img {
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 600px) {
-
-    /* 2. Oprava Harmonogramu (Zarovnání doleva) */
-    #harmonogram {
-        text-align: left !important;
-        align-items: flex-start !important;
-        padding-left: 20px !important;
-    }
-
-    /* 3. Oprava Zápisu hostů (Tlačítko a přetékání) */
-    #zapis-hostu {
-        width: 90% !important; /* Místo 100% dáme mírnou rezervu */
-        margin: 0 auto !important;
-        box-sizing: border-box !important;
-        padding: 15px !important;
-    }
-    
-    .btn-zapis {
-        width: 100% !important;
-        display: block !important;
-        margin-top: 10px !important;
-    }
-
-    /* 4. Univerzální pojistka proti přetékání čehokoliv */
-    body, html {
-        overflow-x: hidden !important;
-        width: 100% !important;
-    }
-}
-		
-		.social-links a:hover { color: var(--gold-bright); }
-
-@media (max-width: 600px) {
-            /* 1. Fix Navigace: Aby se menu na mobilu nerozpadlo */
- 
-            .nav-container-inner { 
-                flex-direction: column !important; 
-                gap: 15px !important; 
-            }
-
-            /* 2. Fix Harmonogram: Zarovnání obsahu sekcí doleva */
-            .ui-content-panel { 
-                text-align: left !important; 
-            }
-            .quest-list, .content-grid { 
-                padding-left: 10px !important; 
-                padding-right: 10px !important; 
-            }
-
-            /* 3. Fix Tlačítka: Aby dlouhý text tlačítko nerozbil */
-            .ui-cta-button { 
-                white-space: normal !important; 
-                display: inline-block !important; 
-                width: auto !important; 
-                max-width: 90% !important; 
-                text-align: center !important; 
-                padding: 10px 15px !important; 
-            }
-        }
-		
-.section-divider {
-    position: relative;
-    height: 0;
-    margin: 0;
-    z-index: 20;
-}
-
-.section-divider img {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translate(-50%, -50%);
-    width: 220px;
-    height: auto;
-
-    background: #060607;
-    padding: 0 20px;
-}
-
-#o-hre {
-    border-top: 3px solid var(--gold-dark);
-    position: relative;
-}
-
-#o-hre::before {
-    content: "";
-    position: absolute;
-
-    top: -78px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: 900px;
-    height: 150px;
-
-    background:
-        url("rozdelovac3.png")
-        center center / contain
-        no-repeat;
-
-    z-index: 30;
-}
-		
-	/* Styling pro odkaz v patičce */
-.main-footer a {
-    color: var(--gold-dim); /* Barva odpovídající okolnímu textu v patičce */
-    text-decoration: none;   /* Odstraní podtržení */
-    transition: color 0.3s;  /* Jemný přechod při najetí myší */
-}
-
-.main-footer a:hover {
-    color: var(--gold-bright); /* Při najetí myší se barva změní na zlatou */
-}	
-		
-    </style>
-
-
+	<link rel="stylesheet" href="style.css">
 </head>
 <script>
 function toggleMenu() {
@@ -786,15 +79,15 @@ function toggleMenu() {
 <section id="o-hre" class="ui-content-panel">
     <h2 class="panel-heading">O HŘE</h2>
     
-    <div class="o-hre-wrapper" style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+    <div class="o-hre-wrapper" >
         
-        <div class="o-hre-image" style="flex: 1; min-width: 300px;">
-            <img src="tvrz.png" alt="Tvrz Malešov" style="width: 100%; border: 2px solid var(--gold-dark); box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
+        <div class="o-hre-image" >
+            <img src="tvrz.png" alt="Tvrz Malešov" >
         </div>
 
-        <div class="o-hre-text" style="flex: 1.5; min-width: 300px;">
-            <h3 style="font-family: 'Fondamento', serif; color: var(--gold-bright); font-size: 1.6rem; margin-bottom: 15px; letter-spacing: 1px;">Příběh a imerze</h3>
-            <p style="font-family: 'Almendra', serif; font-size: 1.2rem; line-height: 1.7; color: var(--text-muted); text-align: justify;">
+        <div class="o-hre-text" >
+            <h3 >Příběh a imerze</h3>
+            <p >
                 Děj hry přímo navazuje na události konce Kingdom Come: Deliverance 2. Zikmund byl vyhnán z Čech, rod Ruthardů se vrátil na Malešov a opravuje pobořenou tvrz. 
                 <br><br>
                 Na oslavu míru pořádá Hanuš z Lipé honosnou svatbu. Celá středověká tvrz Malešov bude na víkend uzavřena pouze pro potřeby našeho příběhu, historické hostiny a ubytování hostí. Zažijte autentickou dobovou veselici se vším všudy – bohatá hostina, turnaj v kostkách v krčmě a plně konverzační diplomatické zápletky.
@@ -803,66 +96,62 @@ function toggleMenu() {
     </div>
 </section>
 
-<section id="prakticke" class="ui-content-panel" style="background-image: linear-gradient(to bottom, #060607, #0d0d0f); position: relative; padding: 60px 50px; min-height: 600px;">
+<section id="prakticke" class="ui-content-panel" >
 
-    <div style="position: absolute; top: 0; right: 0; width: 50%; height: 100%; z-index: 0;
-                background-image: url('henry.png'); background-size: contain; background-repeat: no-repeat; background-position: top right;
-                mask-image: linear-gradient(to left, black 40%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to left, black 40%, transparent 100%);
-                opacity: 0.7; pointer-events: none;">
+    <div class="prakticke-bg-image">
     </div>
 
-    <div style="position: relative; z-index: 1; max-width: 900px; margin: 0 auto;">
+    <div class="prakticke-content-wrapper">
         
-        <h2 class="panel-heading" style="text-align: center; margin-bottom: 60px;">PRAKTICKÉ</h2>
+        <h2 class="panel-heading" >PRAKTICKÉ</h2>
 
-        <div style="display: flex; flex-direction: column; gap: 40px; max-width: 600px;">
+        <div class="prakticke-list">
             
-            <div style="display: flex; gap: 20px; align-items: flex-start;">
-                <div style="font-size: 1.8rem; min-width: 40px; text-align: center;"><img src="harmonogram.webp" width="50"></div>
+            <div class="practical-item-row">
+                <div class="practical-icon-wrapper"><img src="harmonogram.webp" width="50"></div>
                 <div>
-                    <h3 style="font-family: 'Fondamento', serif; color: var(--gold-bright); font-size: 1.4rem; margin-bottom: 8px;">Harmonogram a formát</h3>
-                    <p style="font-family: 'Almendra', serif; font-size: 1.1rem; line-height: 1.6; color: var(--text-muted); margin: 0;">
+                    <h3 class="practical-item-title">Harmonogram a formát</h3>
+                    <p class="practical-item-desc">
                         Pátek večer je věnován příjezdu a seznamovacím workshopům. V sobotu v poledne propuká samotná hra rozdělená do tří dějství.
                     </p>
                 </div>
             </div>
 
-            <div style="display: flex; gap: 20px; align-items: flex-start;">
-                <div style="font-size: 1.8rem; min-width: 40px; text-align: center;"><img src="kostymy.webp" width="50"></div>
+            <div class="practical-item-row">
+                <div class="practical-icon-wrapper"><img src="kostymy.webp" width="50"></div>
                 <div>
-                    <h3 style="font-family: 'Fondamento', serif; color: var(--gold-bright); font-size: 1.4rem; margin-bottom: 8px;">Kostýmy a ubytování</h3>
-                    <p style="font-family: 'Almendra', serif; font-size: 1.1rem; line-height: 1.6; color: var(--text-muted); margin: 0;">
+                    <h3 class="practical-item-title">Kostýmy a ubytování</h3>
+                    <p class="practical-item-desc">
                         Kostýmy kompletně zajišťují organizátoři. Vše odpovídá reáliím roku 1403. Spí se společně v autentických prostorech.
                     </p>
                 </div>
             </div>
 
-            <div style="display: flex; gap: 20px; align-items: flex-start;">
-                <div style="font-size: 1.8rem; min-width: 40px; text-align: center;"><img src="cena.webp" width="50"></div>
+            <div class="practical-item-row">
+                <div class="practical-icon-wrapper"><img src="cena.webp" width="50"></div>
                 <div>
-                    <h3 style="font-family: 'Fondamento', serif; color: var(--gold-bright); font-size: 1.4rem; margin-bottom: 8px;">Cena</h3>
-                    <p style="font-family: 'Almendra', serif; font-size: 1.1rem; line-height: 1.6; color: var(--text-muted); margin: 0;">
+                    <h3 class="practical-item-title">Cena</h3>
+                    <p class="practical-item-desc">
                         Text pro třetí odstavec, který může být libovolně dlouhý.
                     </p>
                 </div>
             </div>
 
-            <div style="display: flex; gap: 20px; align-items: flex-start;">
-                <div style="font-size: 1.8rem; min-width: 40px; text-align: center;"><img src="lokace.webp" width="50"></div>
+            <div class="practical-item-row">
+                <div class="practical-icon-wrapper"><img src="lokace.webp" width="50"></div>
                 <div>
-                    <h3 style="font-family: 'Fondamento', serif; color: var(--gold-bright); font-size: 1.4rem; margin-bottom: 8px;">Lokace</h3>
-                    <p style="font-family: 'Almendra', serif; font-size: 1.1rem; line-height: 1.6; color: var(--text-muted); margin: 0;">
+                    <h3 class="practical-item-title">Lokace</h3>
+                    <p class="practical-item-desc">
                         Další dodatečný text.
                     </p>
                 </div>
             </div>
 
-            <div style="display: flex; gap: 20px; align-items: flex-start;">
-                <div style="font-size: 1.8rem; min-width: 40px; text-align: center;"><img src="info.webp" width="45"></div>
+            <div class="practical-item-row">
+                <div class="practical-icon-wrapper"><img src="info.webp" width="45"></div>
 				               <div>
-                    <h3 style="font-family: 'Fondamento', serif; color: var(--gold-bright); font-size: 1.4rem; margin-bottom: 8px;">Další informace</h3>
-                    <p style="font-family: 'Almendra', serif; font-size: 1.1rem; line-height: 1.6; color: var(--text-muted); margin: 0;">
+                    <h3 class="practical-item-title">Další informace</h3>
+                    <p class="practical-item-desc">
                         Zde je prostor pro další informace.
                     </p>
                 </div>
@@ -875,114 +164,114 @@ function toggleMenu() {
 <section id="postavy" class="ui-content-panel">
     <h2 class="panel-heading">SEZNAM POSTAV</h2>
     
-	<p style="text-align: center; font-family: 'Fondamento', serif; color: var(--gold-dark); font-size: 1rem; margin-bottom: 30px; letter-spacing: 0.5px;">
+	<p class="postavy-subtitle">
     Každá postava má dvě převažující témata, která určují její osud.
 </p>
 	
-<div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; font-family: 'Fondamento', serif; color: var(--gold-bright);">
-        <div style="display: flex; align-items: center; gap: 8px;"><img src="boj.webp" style="width: 40px;"> Boj</div>
-        <span style="color: var(--gold-dim); opacity: 0.5;">✦</span>
-        <div style="display: flex; align-items: center; gap: 8px;"><img src="intriky.webp" style="width: 40px;"> Intriky</div>
-        <span style="color: var(--gold-dim); opacity: 0.5;">✦</span>
-        <div style="display: flex; align-items: center; gap: 8px;"><img src="pijactvi.webp" style="width: 40px;"> Pijáctví</div>
-        <span style="color: var(--gold-dim); opacity: 0.5;">✦</span>
-        <div style="display: flex; align-items: center; gap: 8px;"><img src="politika.webp" style="width: 40px;"> Politika</div>
-        <span style="color: var(--gold-dim); opacity: 0.5;">✦</span>
-        <div style="display: flex; align-items: center; gap: 8px;"><img src="romantika.webp" style="width: 40px;"> Romantika</div>
+<div class="postavy-tags-container">
+        <div class="character-tag"><img src="boj.webp" class="character-tag-img"> Boj</div>
+        <span class="star-separator">✦</span>
+        <div class="character-tag"><img src="intriky.webp" class="character-tag-img"> Intriky</div>
+        <span class="star-separator">✦</span>
+        <div class="character-tag"><img src="pijactvi.webp" class="character-tag-img"> Pijáctví</div>
+        <span class="star-separator">✦</span>
+        <div class="character-tag"><img src="politika.webp" class="character-tag-img"> Politika</div>
+        <span class="star-separator">✦</span>
+        <div class="character-tag"><img src="romantika.webp" class="character-tag-img"> Romantika</div>
     </div>
 	
 	
-    <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column;">
+    <div class="centered-list-container">
         
-        <div style="display: flex; align-items: center; gap: 20px; padding: 25px 0; border-bottom: 1px solid rgba(166, 134, 66, 0.2);">
-            <div style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--gold-dark); overflow: hidden; flex-shrink: 0;">
-                <img src="Capon.webp" alt="Jan Ptáček" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="list-row-item">
+            <div class="portrait-circle">
+                <img src="Capon.webp" alt="Jan Ptáček" class="portrait-img">
             </div>
-            <div style="flex-grow: 1;">
-                <h3 style="font-family: 'Fondamento', serif; color: var(--gold-bright); margin-bottom: 4px;">Jan Ptáček</h3>
-                <p style="font-family: 'Almendra', serif; font-size: 1rem; color: var(--text-light); line-height: 1.4;">Mladý panovník, který se vrací na Malešov a připravuje velkou svatbu.</p>
+            <div class="flex-grow-item">
+                <h3 class="row-item-title">Jan Ptáček</h3>
+                <p class="character-desc">Mladý panovník, který se vrací na Malešov a připravuje velkou svatbu.</p>
             </div>
-            <div style="display: flex; gap: 12px; flex-shrink: 0;">
-                <img src="boj.webp" title="Boj" style="width: 50px; opacity: 0.8;">
-                <img src="romantika.webp" title="Romantika" style="width: 50px; opacity: 0.8;">
-            </div>
-        </div>
-
-        <div style="display: flex; align-items: center; gap: 20px; padding: 25px 0; border-bottom: 1px solid rgba(166, 134, 66, 0.2);">
-            <div style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--gold-dark); overflow: hidden; flex-shrink: 0;">
-                <img src="jitka.jpg" alt="Jitka z Kunštátu" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div style="flex-grow: 1;">
-                <h3 style="font-family: 'Fondamento', serif; color: var(--gold-bright); margin-bottom: 4px;">Jitka z Kunštátu</h3>
-                <p style="font-family: 'Almendra', serif; font-size: 1rem; color: var(--text-light); line-height: 1.4;">Budoucí nevěsta, jejíž příchod na Malešov stvrdí mír mezi rody.</p>
-            </div>
-            <div style="display: flex; gap: 12px; flex-shrink: 0;">
-                <img src="politika.webp" title="Politika" style="width: 50px; opacity: 0.8;">
-                <img src="romantika.webp" title="Romantika" style="width: 50px; opacity: 0.8;">
+            <div class="character-badges">
+                <img src="boj.webp" title="Boj" class="character-badge-img">
+                <img src="romantika.webp" title="Romantika" class="character-badge-img">
             </div>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 20px; padding: 25px 0; border-bottom: 1px solid rgba(166, 134, 66, 0.2);">
-            <div style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--gold-dark); overflow: hidden; flex-shrink: 0;">
-                <img src="Hanush.webp" alt="Hanuš z Lipé" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="list-row-item">
+            <div class="portrait-circle">
+                <img src="jitka.jpg" alt="Jitka z Kunštátu" class="portrait-img">
             </div>
-            <div style="flex-grow: 1;">
-                <h3 style="font-family: 'Fondamento', serif; color: var(--gold-bright); margin-bottom: 4px;">Hanuš z Lipé</h3>
-                <p style="font-family: 'Almendra', serif; font-size: 1rem; color: var(--text-light); line-height: 1.4;">Starý pán, který svatbu pořádá a střeží bezpečí celého panství.</p>
+            <div class="flex-grow-item">
+                <h3 class="row-item-title">Jitka z Kunštátu</h3>
+                <p class="character-desc">Budoucí nevěsta, jejíž příchod na Malešov stvrdí mír mezi rody.</p>
             </div>
-            <div style="display: flex; gap: 12px; flex-shrink: 0;">
-                <img src="pijactvi.webp" title="Pijáctví" style="width: 50px; opacity: 0.8;">
-                <img src="politika.webp" title="Politika" style="width: 50px; opacity: 0.8;">
+            <div class="character-badges">
+                <img src="politika.webp" title="Politika" class="character-badge-img">
+                <img src="romantika.webp" title="Romantika" class="character-badge-img">
+            </div>
+        </div>
+
+        <div class="list-row-item">
+            <div class="portrait-circle">
+                <img src="Hanush.webp" alt="Hanuš z Lipé" class="portrait-img">
+            </div>
+            <div class="flex-grow-item">
+                <h3 class="row-item-title">Hanuš z Lipé</h3>
+                <p class="character-desc">Starý pán, který svatbu pořádá a střeží bezpečí celého panství.</p>
+            </div>
+            <div class="character-badges">
+                <img src="pijactvi.webp" title="Pijáctví" class="character-badge-img">
+                <img src="politika.webp" title="Politika" class="character-badge-img">
             </div>
         </div>
         
     </div>
 </section>
 
-        <section id="prihlasovani" class="ui-content-panel" style="background-image: linear-gradient(to bottom, #0d0d0f, #050506);">
+        <section id="prihlasovani" class="ui-content-panel" >
             <h2 class="panel-heading">ZÁPIS HOSTŮ</h2>
-            <div style="text-align: center; max-width: 650px; margin: 0 auto;">
-                <p style="font-size: 1.15rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 35px;">
+            <div class="prihlasovani-wrapper">
+                <p class="prihlasovani-text">
                     Svitky s přihláškami budou otevřeny od 19. ledna do 31. ledna. Každý z autorů drží právo jednoho žolíka pro obsazení postav, zbylá dvě třetiny míst na hostině budou spravedlivě vylosovány.
                 </p>
-                <a href="#" class="ui-cta-button" style="font-size: 1.2rem; padding: 15px 40px;">✒ Zaregistrovat se</a>
+                <a href="#" class="ui-cta-button ui-cta-button-large">✒ Zaregistrovat se</a>
             </div>
         </section>
 
 <section id="autori" class="ui-content-panel">
     <h2 class="panel-heading">TVOŘITELÉ PŘÍBĚHU</h2>
     
-    <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column;">
+    <div class="centered-list-container">
         
-        <div style="display: flex; align-items: center; gap: 20px; padding: 25px 0; border-bottom: 1px solid rgba(166, 134, 66, 0.2);">
-            <div style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--gold-dark); overflow: hidden; flex-shrink: 0;">
-                <img src="83d54a0d-633c-4fd4-aa6f-4446d036d945.jpg" alt="David Vávra" class="kcd-photo-effect" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="list-row-item">
+            <div class="portrait-circle">
+                <img src="83d54a0d-633c-4fd4-aa6f-4446d036d945.jpg" alt="David Vávra" class="portrait-img kcd-photo-effect">
             </div>
-            <div style="flex-grow: 1;">
-                <h3 style="font-family: 'Fondamento', serif; color: var(--gold-bright); margin-bottom: 4px;">David Vávra</h3>
-                <p style="font-family: 'Fondamento', serif; color: var(--gold-dark); font-style: italic; font-size: 0.9rem; margin-bottom: 5px;">Nejvyšší hofmistr malešovského skriptoria, strážce loru a hrdina v kroužkové zbroji</p>
-                <p style="font-family: 'Almendra', serif; font-size: 0.95rem; color: var(--text-light); line-height: 1.4;">Urozený pán, jenž po vzoru slavných mistrů z Warhorse chopil se brku...</p>
+            <div class="flex-grow-item">
+                <h3 class="row-item-title">David Vávra</h3>
+                <p class="author-title">Nejvyšší hofmistr malešovského skriptoria, strážce loru a hrdina v kroužkové zbroji</p>
+                <p class="author-desc">Urozený pán, jenž po vzoru slavných mistrů z Warhorse chopil se brku...</p>
             </div>
-            <div style="display: flex; gap: 10px; flex-shrink: 0;">
-                <img src="https://static.wikia.nocookie.net/kingdom-come-deliverance/images/f/f7/Food_Poisoning_Effect.png/revision/latest?cb=20260325042806" title="Hlavní org" style="width: 30px; opacity: 0.8;">
-                <img src="https://static.wikia.nocookie.net/kingdom-come-deliverance/images/9/96/Kcd_Skill_Main_icon.png/revision/latest/scale-to-width-down/64?cb=20260324012102" title="Nesnáší tuhle ikonu" style="width: 30px; opacity: 0.8;">
-                <a href="URL_FB" target="_blank"><img src="https://www.deepsilver.com/media/ozskvnpv/facebook.svg" style="width: 25px; opacity: 0.6; margin-left: 10px;"></a>
+            <div class="author-badges">
+                <img src="https://static.wikia.nocookie.net/kingdom-come-deliverance/images/f/f7/Food_Poisoning_Effect.png/revision/latest?cb=20260325042806" title="Hlavní org" class="author-badge-img">
+                <img src="https://static.wikia.nocookie.net/kingdom-come-deliverance/images/9/96/Kcd_Skill_Main_icon.png/revision/latest/scale-to-width-down/64?cb=20260324012102" title="Nesnáší tuhle ikonu" class="author-badge-img">
+                <a href="URL_FB" target="_blank"><img src="https://www.deepsilver.com/media/ozskvnpv/facebook.svg" class="author-social-img"></a>
             </div>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 20px; padding: 25px 0; border-bottom: 1px solid rgba(166, 134, 66, 0.2);">
-            <div style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--gold-dark); overflow: hidden; flex-shrink: 0;">
-                <img src="1b142997-2f08-4d88-bcb5-43d9ac618bf9.jpg" alt="Bára Drbohlavová" class="kcd-photo-effect" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="list-row-item">
+            <div class="portrait-circle">
+                <img src="1b142997-2f08-4d88-bcb5-43d9ac618bf9.jpg" alt="Bára Drbohlavová" class="portrait-img kcd-photo-effect">
             </div>
-            <div style="flex-grow: 1;">
-                <h3 style="font-family: 'Fondamento', serif; color: var(--gold-bright); margin-bottom: 4px;">Bára Drbohlavová</h3>
-                <p style="font-family: 'Fondamento', serif; color: var(--gold-dark); font-style: italic; font-size: 0.9rem; margin-bottom: 5px;">Svrchovaná paní na Malešově, nejvyšší purkmistryně a majitelka Davidova meče i osudu</p>
-                <p style="font-family: 'Almendra', serif; font-size: 0.95rem; color: var(--text-light); line-height: 1.4;">Moudrá a nekompromisní šlechtična, která odmítá sedět v koutě...</p>
+            <div class="flex-grow-item">
+                <h3 class="row-item-title">Bára Drbohlavová</h3>
+                <p class="author-title">Svrchovaná paní na Malešově, nejvyšší purkmistryně a majitelka Davidova meče i osudu</p>
+                <p class="author-desc">Moudrá a nekompromisní šlechtična, která odmítá sedět v koutě...</p>
             </div>
-            <div style="display: flex; gap: 10px; flex-shrink: 0;">
-                <img src="https://static.wikia.nocookie.net/kingdom-come-deliverance/images/2/27/Kcd_Skill_First_Aid_icon.png/revision/latest/scale-to-width-down/64?cb=20260324012104" title="Čekuje larpové chyby" style="width: 30px; opacity: 0.8;">
-                <img src="https://static.wikia.nocookie.net/kingdom-come-deliverance/images/4/44/Kcd_Skill_Shield_icon.png/revision/latest/scale-to-width-down/64?cb=20260324012103" title="Brání ideu" style="width: 30px; opacity: 0.8;">
-                <a href="URL_IG" target="_blank"><img src="https://www.deepsilver.com/media/ozskvnpv/facebook.svg" style="width: 25px; opacity: 0.6; margin-left: 10px;"></a>
+            <div class="author-badges">
+                <img src="https://static.wikia.nocookie.net/kingdom-come-deliverance/images/2/27/Kcd_Skill_First_Aid_icon.png/revision/latest/scale-to-width-down/64?cb=20260324012104" title="Čekuje larpové chyby" class="author-badge-img">
+                <img src="https://static.wikia.nocookie.net/kingdom-come-deliverance/images/4/44/Kcd_Skill_Shield_icon.png/revision/latest/scale-to-width-down/64?cb=20260324012103" title="Brání ideu" class="author-badge-img">
+                <a href="URL_IG" target="_blank"><img src="https://www.deepsilver.com/media/ozskvnpv/facebook.svg" class="author-social-img"></a>
             </div>
         </div>
         
@@ -990,12 +279,12 @@ function toggleMenu() {
 </section>
 
   <footer class="main-footer">
-    <div class="social-links" style="margin-bottom: 20px; display: flex; justify-content: center; gap: 20px;">
-        <a href="https://facebook.com" target="_blank" style="text-decoration: none; color: var(--gold-dark); font-size: 1.5rem; transition: color 0.3s;">
-            <i class="fab fa-facebook"></i> <span style="font-family: 'Fondamento', serif;">Facebook</span>
+    <div class="social-links" >
+        <a href="https://facebook.com" target="_blank" >
+            <i class="fab fa-facebook"></i> <span >Facebook</span>
         </a>
-        <a href="https://instagram.com" target="_blank" style="text-decoration: none; color: var(--gold-dark); font-size: 1.5rem; transition: color 0.3s;">
-            <i class="fab fa-instagram"></i> <span style="font-family: 'Fondamento', serif;">Instagram</span>
+        <a href="https://instagram.com" target="_blank" >
+            <i class="fab fa-instagram"></i> <span >Instagram</span>
         </a>
     </div>
 
@@ -1007,8 +296,8 @@ function toggleMenu() {
 
     </div>
 
-<a href="#" style="position: fixed; bottom: 30px; right: 30px; z-index: 1000; text-decoration: none; font-size: 2rem; color: var(--gold-dark); transition: all 0.3s ease; opacity: 0.7;">
-    <span style="display: block; width: 50px; height: 50px; border: 2px solid var(--gold-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(10, 10, 11, 0.8);">
+<a href="#" class="back-to-top">
+    <span class="back-to-top-icon">
         ⌂
     </span>
 </a>
