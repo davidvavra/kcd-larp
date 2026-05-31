@@ -10,15 +10,17 @@
 }
 
 /* --- ZÁKLADNÍ CONFIG & RESPONSIVE FIXES --- */
-html, body {
+html,
+body {
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Zákaz horizontálního scrollu */
+    overflow-x: hidden;
+    /* Zákaz horizontálního scrollu */
 }
 
 html {
-    scroll-padding-top: 130px; 
+    scroll-padding-top: 130px;
 }
 
 * {
@@ -46,19 +48,18 @@ body {
 /* ========================================== */
 .hero-wedding-header {
     width: 100%;
-    height: 100vh; /* Přesně 100% výšky obrazovky */
+    height: 100vh;
+    /* Přesně 100% výšky obrazovky */
     position: relative;
-    background: linear-gradient(
-            to bottom, 
-            rgba(10, 10, 11, 0.85) 0%, 
-            rgba(10, 10, 11, 0.4) 50%, 
-            rgba(10, 10, 11, 0.9) 100%
-        ), 
+    background: linear-gradient(to bottom,
+            rgba(10, 10, 11, 0.85) 0%,
+            rgba(10, 10, 11, 0.4) 50%,
+            rgba(10, 10, 11, 0.9) 100%),
         url('images/svatba.png');
     background-size: cover;
     background-position: center 30%;
     background-repeat: no-repeat;
-    
+
     /* Vycentrování textu uprostřed monitoru */
     display: flex;
     flex-direction: column;
@@ -75,8 +76,8 @@ body {
     max-width: 1250px;
     margin: 0 auto;
     padding: 0 40px;
-    /* Mírný posun nahoru, aby byl text opticky vycentrovaný nad menu */
-    transform: translateY(-40px); 
+    /* Mírný posun dolů k vyrovnání horního menu */
+    transform: translateY(30px);
 }
 
 .hero-meta-top {
@@ -86,7 +87,7 @@ body {
     color: var(--gold-bright);
     text-transform: uppercase;
     margin-bottom: 35px;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
 }
 
 .hero-title-zone {
@@ -100,7 +101,7 @@ body {
 .hero-decorator {
     font-size: 2.5rem;
     color: var(--gold-bright);
-    text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
     user-select: none;
 }
 
@@ -111,6 +112,7 @@ body {
     font-weight: 400;
     line-height: 1.1;
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 0, 0, 0.7);
+    text-align: center;
 }
 
 .main-wedding-title small {
@@ -120,7 +122,7 @@ body {
     display: block;
     margin-top: 20px;
     letter-spacing: 2px;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
 .hero-text-bottom {
@@ -131,6 +133,7 @@ body {
     max-width: 900px;
     margin: 45px auto 0 auto;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
+    text-align: center;
 }
 
 /* ========================================== */
@@ -143,17 +146,15 @@ body {
     z-index: 9999;
     margin: 0;
     padding: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(45,35,24,0.98),
-        rgba(18,14,10,0.98)
-    );
+    background: linear-gradient(to bottom,
+            rgba(45, 35, 24, 0.98),
+            rgba(18, 14, 10, 0.98));
     border-top: 1px solid #d1aa52;
     border-bottom: 1px solid #6e5529;
     box-shadow:
-        0 8px 20px rgba(0,0,0,.75),
-        inset 0 1px 0 rgba(255,255,255,.08),
-        inset 0 -1px 0 rgba(0,0,0,.5);
+        0 8px 20px rgba(0, 0, 0, .75),
+        inset 0 1px 0 rgba(255, 255, 255, .08),
+        inset 0 -1px 0 rgba(0, 0, 0, .5);
     overflow: visible;
     position: fixed;
 }
@@ -194,9 +195,9 @@ body {
     max-width: 1250px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 0px 130px; 
+    padding: 0px 130px;
 }
 
 .nav-links {
@@ -240,7 +241,7 @@ body {
     color: var(--gold-bright);
     font-weight: bold;
     letter-spacing: 1.5px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 1px 3px rgba(255,255,255,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 1px 3px rgba(255, 255, 255, 0.1);
     transition: all 0.15s ease-in-out;
     white-space: nowrap;
 }
@@ -302,7 +303,8 @@ body {
     gap: 20px;
 }
 
-.panel-heading::before, .panel-heading::after {
+.panel-heading::before,
+.panel-heading::after {
     content: "";
     flex: 1;
     height: 1px;
@@ -530,7 +532,7 @@ body {
 .o-hre-image img {
     width: 100%;
     border: 2px solid var(--gold-dark);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .o-hre-text {
@@ -720,7 +722,7 @@ body {
     .mobile-menu-toggle {
         display: block;
     }
-    
+
     .nav-links {
         display: none;
         flex-direction: column;
@@ -731,81 +733,92 @@ body {
     .nav-links.active {
         display: flex;
     }
-        
-    .hero-wedding-header { 
-        height: auto; 
-        min-height: 100vh; /* Na mobilu se výška přizpůsobí, pokud by byl text moc dlouhý */
-        padding: 160px 0 120px 0; /* Prostor pro menu dole */
+
+    .hero-wedding-header {
+        height: auto;
+        min-height: 100vh;
+        /* Na mobilu se výška přizpůsobí, pokud by byl text moc dlouhý */
+        padding: 160px 0 120px 0;
+        /* Prostor pro menu dole */
     }
-    .header-content-wrapper { 
-        transform: none; 
-        padding: 0 20px; 
+
+    .header-content-wrapper {
+        transform: none;
+        padding: 0 20px;
     }
-    .main-wedding-title { 
-        font-size: 2.2rem; 
+
+    .main-wedding-title {
+        font-size: 2.2rem;
     }
-    .main-wedding-title small { 
-        font-size: 1.3rem; 
+
+    .main-wedding-title small {
+        font-size: 1.3rem;
     }
-    
+
     /* Skrytí dekorací na mobilu, aby se text neroztahoval do stran */
-    .hero-decorator { 
-        display: none; 
+    .hero-decorator {
+        display: none;
     }
-    .hero-text-bottom { 
-        font-size: 1.15rem; 
-        padding: 0; 
-        margin-top: 30px; 
+
+    .hero-text-bottom {
+        font-size: 1.15rem;
+        padding: 0;
+        margin-top: 30px;
     }
-    .hero-meta-top { 
-        font-size: 0.9rem; 
-        letter-spacing: 2px; 
-        margin-bottom: 20px; 
+
+    .hero-meta-top {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
     }
-    
+
     .nav-container-inner {
         flex-direction: column;
         align-items: center;
         padding: 15px 10px;
     }
-    
-    .nav-links { 
-        flex-direction: column; 
-        gap: 5px; 
-        justify-content: center; 
-        width: 100%; 
+
+    .nav-links {
+        flex-direction: column;
+        gap: 5px;
+        justify-content: center;
+        width: 100%;
     }
-    .nav-links .sep { 
-        display: none; 
+
+    .nav-links .sep {
+        display: none;
     }
-    .nav-links a { 
-        padding: 5px 10px; 
-        font-size: 1.05rem; 
+
+    .nav-links a {
+        padding: 5px 10px;
+        font-size: 1.05rem;
     }
-    
-    .web-container { 
-        padding: 0; 
-        margin: 20px auto; 
+
+    .web-container {
+        padding: 0;
+        margin: 20px auto;
     }
-    .ui-content-panel { 
-        padding: 40px 20px; 
-        border-left: none; 
-        border-right: none; 
+
+    .ui-content-panel {
+        padding: 40px 20px;
+        border-left: none;
+        border-right: none;
     }
-    
-    .main-footer { 
-        border-left: none; 
-        border-right: none; 
+
+    .main-footer {
+        border-left: none;
+        border-right: none;
     }
 }
 
 /* Úprava pro mobily */
 @media (max-width: 600px) {
+
     /* Zmenšení ikonek v sekci postav a autorů */
     .author-badge-img {
         width: 24px !important;
     }
-    
+
     /* Vycentrování avatarů na mobilu */
     .portrait-circle,
     .ui-content-panel img {
@@ -814,32 +827,35 @@ body {
 }
 
 @media (max-width: 600px) {
+
     /* Pojistka proti přetékání čehokoliv */
-    body, html {
+    body,
+    html {
         overflow-x: hidden !important;
         width: 100% !important;
     }
 }
 
 @media (max-width: 600px) {
+
     /* 1. Fix Navigace: Aby se menu na mobilu nerozpadlo */
-    .nav-container-inner { 
-        flex-direction: column !important; 
-        gap: 15px !important; 
+    .nav-container-inner {
+        flex-direction: column !important;
+        gap: 15px !important;
     }
 
     /* 2. Fix Harmonogram: Zarovnání obsahu sekcí doleva */
-    .ui-content-panel { 
-        text-align: left !important; 
+    .ui-content-panel {
+        text-align: left !important;
     }
 
     /* 3. Fix Tlačítka: Aby dlouhý text tlačítko nerozbil */
-    .ui-cta-button { 
-        white-space: normal !important; 
-        display: inline-block !important; 
-        width: auto !important; 
-        max-width: 90% !important; 
-        text-align: center !important; 
-        padding: 10px 15px !important; 
+    .ui-cta-button {
+        white-space: normal !important;
+        display: inline-block !important;
+        width: auto !important;
+        max-width: 90% !important;
+        text-align: center !important;
+        padding: 10px 15px !important;
     }
 }
